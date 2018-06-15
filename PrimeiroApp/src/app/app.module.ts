@@ -15,6 +15,7 @@ import {HttpModule} from "@angular/http"
 import { ApresentacaoPage } from '../pages/apresentacao/apresentacao';
 import { ApresentacaoPageModule } from '../pages/apresentacao/apresentacao.module';
 import { MovieProvider } from '../providers/movie/movie';
+import { DetalhesPageModule } from '../pages/detalhes/detalhes.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MovieProvider } from '../providers/movie/movie';
     //Local onde se declara os modules para a aplicação reconhecer as paginas
     ProjetosPageModule,
     ApresentacaoPageModule,
+    DetalhesPageModule,
     //Inclue o modulo http para Consumo de APIS
     HttpModule
   ],

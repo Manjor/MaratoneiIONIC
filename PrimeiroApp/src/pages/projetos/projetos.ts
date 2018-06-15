@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MovieProvider } from '../../providers/movie/movie';
+import { DetalhesPage } from '../detalhes/detalhes';
 
 /**
  * Generated class for the ProjetosPage page.
@@ -36,8 +37,14 @@ export class ProjetosPage {
   {
     alert(5 + 10);
   }
-
-
+  
+  //Metodo que redireciona para a pagina de Detalhes
+  irDetalhes(idFilme: any)
+  {
+    this.navCtrl.push(DetalhesPage,{
+      id: idFilme
+    });
+  }
 
   public soma_parametros(num1:number, num2:number): void
   {
