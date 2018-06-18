@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { MovieProvider } from '../../providers/movie/movie';
 
 /**
  * Generated class for the DetalhesPage page.
@@ -12,18 +13,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-detalhes',
   templateUrl: 'detalhes.html',
+  providers: [
+    MovieProvider
+  ]
 })
 export class DetalhesPage {
 
   public lista_filmes = new Array<any>();
   public  idFilme = this.navParams.get('id');
-  movieProvider: any;
+
   constructor(public navCtrl: NavController,
-     public navParams: NavParams
+     public navParams: NavParams,
+     private movieProvider: MovieProvider
     ) {
       
       console.log(this.idFilme);
   }
+
 
   ionViewDidLoad() {
     //Chama o metodo de pegar Ultimos Filmes

@@ -13,9 +13,10 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding *ngFor="let filme of lista_filmes">
 <p>
  Here {{ idFilme }}
+ 
 </p>
 <ion-card>
   <img src="img/nin-live.png"/>
