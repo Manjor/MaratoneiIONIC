@@ -39,11 +39,15 @@ export class ProjetosPage {
   }
   
   //Metodo que redireciona para a pagina de Detalhes
-  irDetalhes(idFilme: any)
+  irDetalhes(filme)
   {
+    console.log(filme);
+    
     this.navCtrl.push(DetalhesPage,{
-      id: idFilme
+      id: filme.id
     });
+    console.log(filme.id);
+    
   }
 
   public soma_parametros(num1:number, num2:number): void

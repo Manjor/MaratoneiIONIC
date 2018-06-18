@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MovieProvider } from '../../providers/movie/movie';
+import { Jsonp } from '@angular/http';
 
 /**
  * Generated class for the DetalhesPage page.
@@ -19,31 +20,28 @@ import { MovieProvider } from '../../providers/movie/movie';
 })
 export class DetalhesPage {
 
-  public lista_filmes = new Array<any>();
-  public  idFilme = this.navParams.get('id');
-
+  public idFilme;
+  public filme;
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
      private movieProvider: MovieProvider
     ) {
       
-      console.log(this.idFilme);
   }
 
 
-  ionViewDidLoad() {
-    //Chama o metodo de pegar Ultimos Filmes
+  ionViewDidEnter() {
+    this.idFilme = this.navParams.get("id");
+    console.log("Id do FIlme: " + this.idFilme)
     this.movieProvider.pegaDetalhes(this.idFilme).subscribe(
-      data =>{
-        const response = (data as any);
-        const resultado = JSON.parse(response._body);
-        this.lista_filmes = resultado.results;
-        console.log(resultado);
+      data=>{
+        let resultado = (data as any)._body;
+        this.filme = JSON.parse(resultado);
       },
-      error => {
+      error=>{
         console.log(error);
-      }
-    )
+      });
+
   }
 
 

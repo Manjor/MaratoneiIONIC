@@ -27,9 +27,9 @@ export class MovieProvider {
     return this.http.get(this.baseApi + "/movie/popular?api_key=" + this.chaveApi +"&language=pt-BR")
   }
 
-  pegaDetalhes(id:string)
+  pegaDetalhes(filmeid)
   {
-    return this.http.get(this.baseApi + "/movie/top_rated?apikey=" + this.chaveApi +"&language=pt-BR" )
+    return this.http.get(this.baseApi + `/movie/${filmeid}?api_key=` + this.chaveApi +"&language=pt-BR" )
   }
 
   

@@ -13,20 +13,20 @@
 </ion-header>
 
 
-<ion-content padding *ngFor="let filme of lista_filmes">
+<ion-content padding>
 <p>
- Here {{ idFilme }}
- 
 </p>
-<ion-card>
-  <img src="img/nin-live.png"/>
+<ion-card *ngIf="filme">
+  
   <ion-card-content>
+    
     <ion-card-title>
-      Nine Inch Nails Live
+      <img [src]="'https://image.tmdb.org/t/p/w500/' + filme.backdrop_path"/>
+      {{filme.original_title}}
       </ion-card-title>
     <p>
-      The most popular industrial group ever, and largely
-      responsible for bringing the music to a mass audience.
+      {{filme.overview}}<br>
+      <a href="{{filme.homepage}}" target="_blank">{{filme.homepage}}</a>
     </p>
   </ion-card-content>
 </ion-card>
