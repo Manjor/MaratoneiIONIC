@@ -22,11 +22,13 @@ export class MovieProvider {
     console.log('Hello MovieProvider Provider');
   }
 
+  //Pega os Filmes mais populares
   pegaUltimosFilmes()
   {
     return this.http.get(this.baseApi + "/movie/popular?api_key=" + this.chaveApi +"&language=pt-BR")
   }
 
+  //Metodo que busca os detalhes do filme na API de filmes
   pegaDetalhes(filmeid)
   {
     return this.http.get(this.baseApi + `/movie/${filmeid}?api_key=` + this.chaveApi +"&language=pt-BR" )
