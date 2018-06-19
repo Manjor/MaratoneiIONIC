@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { MovieProvider } from '../../providers/movie/movie';
 import { DetalhesPage } from '../detalhes/detalhes';
 
@@ -28,7 +28,8 @@ export class ProjetosPage {
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
-     private movieProvider: MovieProvider
+     private movieProvider: MovieProvider,
+     public loadingCtrl: LoadingController
     ) {
   }
 
@@ -55,8 +56,19 @@ export class ProjetosPage {
     alert(num1 + num2);
   }
 
-  ionViewDidLoad() {
+  carregaConteudo()
+  {
+      const loader = this.loadingCtrl.create({
+        content: "Carregando Conteudo",
+        duration: 2000
+      });
+      loader.present();
+  }
+
+  
+  ionViewDidEnter() {
     //Chama o metodo de pegar Ultimos Filmes
+    this.carregaConteudo();
     this.movieProvider.pegaUltimosFilmes().subscribe(
       data =>{
         const response = (data as any);

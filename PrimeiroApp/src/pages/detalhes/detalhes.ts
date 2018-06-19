@@ -22,6 +22,10 @@ export class DetalhesPage {
 
   public idFilme;
   public filme;
+  public fotos;
+  public video;
+
+  public lista_videos = new Array<any>();
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
      private movieProvider: MovieProvider
@@ -41,6 +45,18 @@ export class DetalhesPage {
       error=>{
         console.log(error);
       });
+
+      this.movieProvider.pegaVideo(this.idFilme).subscribe(
+        data=>{
+          const response = (data as any);
+          const resultado = JSON.parse(response._body);
+          this.lista_videos = resultado.results;
+          console.log(this.lista_videos);
+        },
+        error => {
+          console.log(error);
+        }
+      )
 
   }
 

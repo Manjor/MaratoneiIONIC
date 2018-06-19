@@ -11,7 +11,7 @@
   </ion-navbar>
 
 </ion-header>
-<ion-content class="corpoDetalhes" *ngIf="filme">
+<ion-content class="corpoDetalhes" *ngIf="filme" padding>
     <img [src]="'https://image.tmdb.org/t/p/w500/' + filme.poster_path"/>
 <ion-card>
   <ion-card-content padding>
@@ -20,8 +20,28 @@
       </ion-card-title>
     <p>
       {{filme.overview}}<br>
+      Genero(s): {{filme.genres[0].name}}, {{filme.genres[1].name}}, {{filme.genres[2].name}}<br>
       <a href="{{filme.homepage}}" target="_blank">{{filme.homepage}}</a>
     </p>
   </ion-card-content>
+  
+  <ion-card>
+    <ion-card-content padding>
+      <h5>Confira o Trailer</h5>
+      <p *ngFor="let video of lista_videos">
+        <iframe
+            width="300" height="315"
+            src="https://www.youtube.com/embed/"
+            frameborder="0" allow="autoplay; encrypted-media"
+            allowfullscreen>
+        </iframe>
+        
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
 </ion-card>
     

@@ -14,9 +14,9 @@ import { Http } from '@angular/http';
 @Injectable()
 export class MovieProvider {
 
-  private baseApi = "https://api.themoviedb.org/3"
+  private baseApi = "https://api.themoviedb.org/3/movie/"
   private chaveApi = ""
-
+  private idioma = "&language=pt-BR"
 
   constructor(public http: Http) {
     console.log('Hello MovieProvider Provider');
@@ -25,14 +25,27 @@ export class MovieProvider {
   //Pega os Filmes mais populares
   pegaUltimosFilmes()
   {
-    return this.http.get(this.baseApi + "/movie/popular?api_key=" + this.chaveApi +"&language=pt-BR")
+    
+    return this.http.get(this.baseApi + "popular?api_key=" + this.chaveApi + this.idioma)
+    
   }
 
   //Metodo que busca os detalhes do filme na API de filmes
   pegaDetalhes(filmeid)
   {
-    return this.http.get(this.baseApi + `/movie/${filmeid}?api_key=` + this.chaveApi +"&language=pt-BR" )
+    
+    return this.http.get(this.baseApi + `${filmeid}?api_key=` + this.chaveApi + this.idioma)
+
   }
 
+  //Metodo que irá buscar os principais reviews daquele filme
+  pegaReviews(filmeid)
+  {
+    return this.http.get(this.baseApi + `${filmeid}/reviews?api_key=` + this.chaveApi + this.idioma )
+  }
   
+  pegaVideo(filmeid)
+  {
+    return this.http.get(this.baseApi + `${filmeid}/videos?api_key=` + this.chaveApi + this.idioma )
+  }
 }
