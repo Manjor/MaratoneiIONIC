@@ -29,11 +29,11 @@
     <ion-card-content padding>
       <h5>Confira o Trailer</h5>
       <p *ngFor="let video of lista_videos">
+        {{protecaodeVideo(video.key)}}
         <iframe
             width="300" height="315"
-            src="https://www.youtube.com/embed/"
-            frameborder="0" allow="autoplay; encrypted-media"
-            allowfullscreen>
+            [src] = "urlVideoSegura"
+            frameborder="0" >
         </iframe>
         
       </p>

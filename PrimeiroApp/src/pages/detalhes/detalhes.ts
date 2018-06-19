@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MovieProvider } from '../../providers/movie/movie';
 import { Jsonp } from '@angular/http';
+import { DomSanitizer } from '@angular/platform-browser';
 
 /**
  * Generated class for the DetalhesPage page.
@@ -24,15 +25,26 @@ export class DetalhesPage {
   public filme;
   public fotos;
   public video;
+  public urlVideo;
+  public urlVideoSegura;
 
   public lista_videos = new Array<any>();
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
-     private movieProvider: MovieProvider
+     private movieProvider: MovieProvider,
+     private sanitizer: DomSanitizer
     ) {
-      
+  
   }
 
+
+  protecaodeVideo(key)
+  {
+    this.urlVideo = 'https://www.youtube.com/embed/' + key;
+    this.urlVideoSegura = this.sanitizer.bypassSecurityTrustUrl(this.urlVideo);
+    console.log(this.urlVideoSegura);
+    
+  }
 
   ionViewDidEnter() {
     this.idFilme = this.navParams.get("id");
