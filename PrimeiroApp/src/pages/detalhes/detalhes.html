@@ -11,11 +11,15 @@
   </ion-navbar>
 
 </ion-header>
-<ion-content class="corpoDetalhes" *ngIf="filme" padding>
-    <img [src]="'https://image.tmdb.org/t/p/w500/' + filme.poster_path"/>
-<ion-card>
+
+
+
+<ion-content class="corpoDetalhes"  padding>
+    
+<ion-card *ngIf="filme">
   <ion-card-content padding>
     <ion-card-title>
+      <img [src]="'https://image.tmdb.org/t/p/w500/' + filme.poster_path"/>
       <div class="card-title">{{filme.original_title}}</div>
       </ion-card-title>
     <p>
@@ -25,24 +29,15 @@
       <a href="{{filme.homepage}}" target="_blank">{{filme.homepage}}</a>
     </p>
   </ion-card-content>
-  
-  <ion-card>
-    <ion-card-content padding>
-      <h5>Confira o Trailer</h5>
-      <p *ngFor="let video of lista_videos">
-        {{protecaodeVideo(video.key)}}
-        <iframe
-            width="300" height="315"
-            [src] = "urlVideoSegura"
-            frameborder="0" >
-        </iframe>
-        
-      </p>
-    </ion-card-content>
-  </ion-card>
-
-
-
+  <h4 padding>Confira o Trailer</h4>
+  <p *ngFor="let video of lista_videos" padding>
+      {{protecaodeVideo(video.key)}}
+      <iframe
+          width="300" height="315"
+          [src] = "urlVideoSegura"
+          frameborder="0" >
+      </iframe>
+  </p>
 
 </ion-card>
     
