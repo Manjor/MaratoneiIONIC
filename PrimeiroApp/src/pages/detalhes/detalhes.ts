@@ -29,9 +29,6 @@ export class DetalhesPage {
   public urlVideoSegura;
 
   public lista_videos = new Array<any>();
-
-
-
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
      private movieProvider: MovieProvider,
@@ -41,14 +38,11 @@ export class DetalhesPage {
   }
 
 
-  protecaodeVideo(id : string)
+  protecaodeVideo(key: string)
   {
-
-    this.urlVideo = 'https://www.youtube.com/embed/' + id;
-    this.urlVideoSegura =
-     this.sanitizer.bypassSecurityTrustResourceUrl(this.urlVideo);
+    this.urlVideo = 'https://www.youtube.com/embed/' + key;
+    this.urlVideoSegura = this.sanitizer.bypassSecurityTrustResourceUrl(this.urlVideo);
     console.log(this.urlVideoSegura);
-    
   }
 
   ionViewDidEnter() {
@@ -62,6 +56,7 @@ export class DetalhesPage {
       error=>{
         console.log(error);
       });
+
       this.movieProvider.pegaVideo(this.idFilme).subscribe(
         data=>{
           const response = (data as any);

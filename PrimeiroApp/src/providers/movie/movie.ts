@@ -15,7 +15,7 @@ import { Http } from '@angular/http';
 export class MovieProvider {
 
   private baseApi = "https://api.themoviedb.org/3/movie/"
-  private chaveApi = ""
+  private chaveApi = "f814673a004bcd3dfd0e837cf1a0b020"
   private idioma = "&language=pt-BR"
 
   constructor(public http: Http) {
