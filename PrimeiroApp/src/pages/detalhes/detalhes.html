@@ -11,59 +11,27 @@
   </ion-navbar>
 
 </ion-header>
-<<<<<<< HEAD
+
 <ion-content padding>
     
-<ion-card class="corpoDetalhes" *ngIf="filme">
-  <ion-card-content>
-    <ion-card-title>
-      <img [src]="'https://image.tmdb.org/t/p/w500/' + filme.poster_path"/>
-      <div class="card-title">{{filme.original_title}}</div>
-=======
 
-
-
-<ion-content class="corpoDetalhes"  padding>
-    
 <ion-card *ngIf="filme">
   <ion-card-content padding>
     <ion-card-title>
       <img [src]="'https://image.tmdb.org/t/p/w500/' + filme.poster_path"/>
->>>>>>> 435d560f65ccc39fc90227cd143f7bbd87b1baa4
       </ion-card-title>
       <div class="card-title">
         <h3 color="primary">
             {{filme.original_title}}
         </h3>
-        
       </div>
+
     <p text-justify>
       {{filme.overview}}<br>
       Genero(s): {{filme.genres[0].name}}, {{filme.genres[1].name}}, {{filme.genres[2].name}}<br>
       <a href="{{filme.homepage}}" target="_blank">{{filme.homepage}}</a>
     </p>
-  </ion-card-content>
-<<<<<<< HEAD
-  
-  <ion-card>
-    <ion-card-content>
-      <h5>Confira o Trailer</h5>
-      <p *ngFor="let video of lista_videos">
-        {{protecaodeVideo(video.key)}}
-        <iframe
-            width="300" height="315"
-            [src] = "urlVideoSegura"
-            frameborder="0" >
-        </iframe>
-        
-      </p>
-    </ion-card-content>
-  </ion-card>
-
-
-
-=======
-  <p *ngFor="let video of lista_videos" padding>
+    <p *ngFor="let video of lista_videos">
       Confira o Trailer
       {{protecaodeVideo(video.key)}}
       <iframe align-center
@@ -71,8 +39,9 @@
           [src] = "urlVideoSegura"
           frameborder="0" >
       </iframe>
-  </p>
->>>>>>> 435d560f65ccc39fc90227cd143f7bbd87b1baa4
+    </p>
+  </ion-card-content>
+  
 
 </ion-card>
     
