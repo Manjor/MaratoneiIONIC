@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Projetos</ion-title>
+    <ion-title>Filmes Populares</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -23,11 +23,13 @@
         <h2>{{ filme.original_title }}</h2>
         
         </ion-card-title>
-      <p>
+      <p text-justify>
        {{filme.overview}}
+       
       </p>
-        <a (click)="irDetalhes(filme)" ion-button color="primary" outline>Ver Detalhes</a>
-        <a href="#" ion-button color="danger" outline>Ver Trailer</a>
+      <a (click)="irDetalhes(filme)" ion-button color="primary" outline>Ver Detalhes</a>
+      <a href="#" ion-button color="danger" outline>Ver Trailer</a>
+        
     </ion-card-content>
   </ion-card>
 
