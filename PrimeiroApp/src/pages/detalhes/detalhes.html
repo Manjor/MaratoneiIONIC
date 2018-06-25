@@ -21,17 +21,17 @@
       <img [src]="'https://image.tmdb.org/t/p/w500/' + filme.poster_path"/>
       </ion-card-title>
       <div class="card-title">
-        <h3 color="primary">
+        <h3 class="texto-branco">
             {{filme.original_title}}
         </h3>
       </div>
 
-    <p text-justify>
+    <p class="texto-branco" text-justify>
       {{filme.overview}}<br>
       Genero(s): {{filme.genres[0].name}}, {{filme.genres[1].name}}, {{filme.genres[2].name}}<br>
       <a href="{{filme.homepage}}" target="_blank">{{filme.homepage}}</a>
     </p>
-    <p *ngFor="let video of lista_videos">
+    <p class="texto-branco" *ngFor="let video of lista_videos">
       Confira o Trailer
       {{protecaodeVideo(video.key)}}
       <iframe align-center

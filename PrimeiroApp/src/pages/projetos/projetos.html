@@ -16,14 +16,14 @@
 <ion-content padding>
 
 
-  <ion-card *ngFor="let filme of lista_filmes">
+  <ion-card class="texto-branco" *ngFor="let filme of lista_filmes">
     <img [src]="'https://image.tmdb.org/t/p/w500/' + filme.backdrop_path"/>
     <ion-card-content>
       <ion-card-title>
-        <h2>{{ filme.original_title }}</h2>
+        <h2 class="texto-branco">{{ filme.original_title }}</h2>
         
         </ion-card-title>
-      <p text-justify>
+      <p class="texto-branco" text-justify>
        {{filme.overview}}
        
       </p>
