@@ -30,22 +30,60 @@
   
   <div>
     <ion-card>
-      <ion-card-header>
-        Ultimos Filmes
+      <ion-card-header padding>
+        <h3 class="h3-Ultimos">Ultimos Filmes</h3>
       </ion-card-header>
       <ion-grid>
 
         <ion-row>
 
-          <ion-col col-6>
+          <ion-col col-6 no-padding>
             <a href="#">
-              
+              <ion-card>
+                <img src="assets/imgs/liga.jpg" alt="">
+                <button ion-button icon-start clear small>
+                    <ion-icon name="text"></ion-icon>
+                    <div>12 Comentários</div>
+                  </button>
+              </ion-card>
             </a>
           </ion-col>
-          <ion-col col-6>2</ion-col>
+          <ion-col col-6 no-padding>
+            <a href="#">
+              <ion-card>
+                <img src="assets/imgs/vingadores.jpg" alt="">
+                <button ion-button icon-start clear small>
+                    <ion-icon name="text"></ion-icon>
+                    <div>10 Comentários</div>
+                  </button>
+              </ion-card>
+            </a>
+          </ion-col>
+          <ion-col col-6 no-padding>
+              <a href="#">
+                <ion-card>
+                  <img src="assets/imgs/jurasic.jpg" alt="">
+                  <button ion-button icon-start clear small>
+                    <ion-icon name="text"></ion-icon>
+                    <div>8 Comentários</div>
+                  </button>
+                </ion-card>
+              </a>
+            </ion-col>
+            <ion-col col-6 no-padding>
+              <a href="#">
+                <ion-card>
+                  <img src="assets/imgs/deadpool.jpg" alt="">
+                  <button ion-button icon-start clear small>
+                      <ion-icon name="text"></ion-icon>
+                      <div>20 Comentários</div>
+                    </button>
+                </ion-card>
+              </a>
+            </ion-col>
 
         </ion-row>
-
+        <button (click)="irTabsPage()" ion-button outline>Ver Lista Completa</button>
 
       </ion-grid>
 
