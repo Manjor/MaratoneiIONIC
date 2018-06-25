@@ -8,29 +8,55 @@
 
 
 <ion-content>
-  <ion-slides  pager>
 
-    <ion-slide>
-      <img class="img-slide" src="assets/imgs/slide1.png" alt="">
-      <h2>Olá! Bem-Vindo</h2>
-      <button ion-button outline (click)="irTabsPage()">Veja Mais</button>
-     
-    </ion-slide>
-  
-    <ion-slide>
-      <img class="img-slide" src="assets/imgs/slide2.png" alt="">
-      <h2>Slide 2</h2>
-    </ion-slide>
-  
-    <ion-slide>
-      <img class="img-slide" src="assets/imgs/slide3.png" alt="">
-      <h2>Slide 3</h2>
-    </ion-slide>
+  <ion-card text-center padding >
+    <img src="" alt="">
+    <div text-center padding>
+      <h1 class="h1-intro">Saiba tudo sobre Filmes e Series em um só Lugar.</h1>
+    </div>
+  </ion-card>
 
-    <ion-slide>
-      <img class="img-slide" src="assets/imgs/slide4.png" alt="">
-      <h2>Slide 4</h2>
-    </ion-slide>
+  <div text-center>
+      <button class="botaoFilmes" ion-button>Ver Filmes</button>
+  </div>
+
+  <div padding margin-horizontal>
+    <form action="">
+      <ion-item padding-horizontal>
+          <ion-input placeholder="Pesquisar"></ion-input>
+      </ion-item>
+    </form>
+  </div>
   
-  </ion-slides>
+  <div>
+    <ion-card>
+      <ion-card-header>
+        Ultimos Filmes
+      </ion-card-header>
+      <ion-grid>
+
+        <ion-row>
+
+          <ion-col col-6>
+            <a href="#">
+              
+            </a>
+          </ion-col>
+          <ion-col col-6>2</ion-col>
+
+        </ion-row>
+
+
+      </ion-grid>
+
+      
+    </ion-card>
+  </div>
+  
+
+
+
+
+
+
 </ion-content>
