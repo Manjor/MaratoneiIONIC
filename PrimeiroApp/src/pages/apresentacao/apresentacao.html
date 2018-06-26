@@ -5,25 +5,28 @@
   Ionic pages and navigation.
 -->
 
-
-
+<ion-header>
+    <ion-navbar color="azul">
+      <button ion-button menuToggle icon-only>
+        <ion-icon name='menu'></ion-icon>
+      </button>
+      <ion-title>Cine Home</ion-title>
+    </ion-navbar>
+</ion-header>
 <ion-content>
-    <div>
-      <img src="" alt="">
-      <div text-center padding no-margin style="background-color: black; margin-top: -15px">
-        <h1 class="h1-intro">Saiba tudo sobre Filmes e Series em um só Lugar.</h1>
+    <div class="divIntro">
+      <div text-center padding no-margin >
+        <h5>Sinopses, Videos, Classificação e muito mais sobre Filmes e Series.</h5>
       </div>
     </div>
-    
-
   <div text-center>
-      <button class="botaoFilmes" ion-button>Ver Filmes</button>
+      <button class="botaoFilmes" ion-button (click)="irFilmes()">Ver Filmes</button>
   </div>
 
   <div padding-horizontal margin-horizontal>
     <form action="">
       <ion-item padding-horizontal>
-          <ion-input placeholder="Pesquisar"></ion-input>
+          <ion-input placeholder="Pesquisar filmes e series"></ion-input>
       </ion-item>
     </form>
   </div>
@@ -83,18 +86,10 @@
             </ion-col>
 
         </ion-row>
-        <button (click)="irTabsPage()" ion-button outline>Ver Lista Completa</button>
-
+        <button (click)="irTabsPage()" ion-button color="dark" outline>Ver Lista Completa</button>
       </ion-grid>
-
       
     </ion-card>
   </div>
   
-
-
-
-
-
-
 </ion-content>

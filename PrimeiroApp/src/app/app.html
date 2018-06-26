@@ -1,1 +1,19 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="conteudoMenu">
+    <ion-header>
+        <ion-toolbar color="azul">
+            <ion-title>Menu</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list margin-right>
+           <button menuClose ion-item (click)="irIncio()">Inicio</button>
+           <button menuClose ion-item (click)="irFilmes()">Filmes</button>
+           <button menuClose ion-item (click)="irSeries">Series</button>
+           <button menuClose ion-item (click)="irSobre">Sobre</button>
+           <button menuClose ion-item (click)="irAjuda" >Ajude-nos</button>
+        </ion-list>
+    </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #conteudoMenu  swipeBackEnable="false"></ion-nav>

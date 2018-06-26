@@ -5,9 +5,23 @@ page-apresentacao {
         width: 240px;
 
     }
-    .botaoFilmes{margin-top: -40px}
+    .botaoFilmes{
+        margin-top: -40px; 
+        width: 10pc;
+        background-color: black;
+    }
     .img-slides{
         height: 100;
+    }
+    .divIntro
+    {
+        background: #2addfc;
+        color: black;
+        height: 100px;
+    }
+
+    ion-navbar {
+        background: red !important;
     }
 
 

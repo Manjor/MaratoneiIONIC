@@ -16,6 +16,8 @@ import { ApresentacaoPage } from '../pages/apresentacao/apresentacao';
 import { ApresentacaoPageModule } from '../pages/apresentacao/apresentacao.module';
 import { MovieProvider } from '../providers/movie/movie';
 import { DetalhesPageModule } from '../pages/detalhes/detalhes.module';
+import { FilmesPage } from '../pages/filmes/filmes';
+import { FilmesPageModule } from '../pages/filmes/filmes.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { DetalhesPageModule } from '../pages/detalhes/detalhes.module';
     ContactPage,
     HomePage,
     TabsPage
+    
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { DetalhesPageModule } from '../pages/detalhes/detalhes.module';
     ProjetosPageModule,
     ApresentacaoPageModule,
     DetalhesPageModule,
+    FilmesPageModule,
     //Inclue o modulo http para Consumo de APIS
     HttpModule
   ],
@@ -42,6 +46,7 @@ import { DetalhesPageModule } from '../pages/detalhes/detalhes.module';
     ContactPage,
     HomePage,
     TabsPage
+   
   ],
   providers: [
     StatusBar,

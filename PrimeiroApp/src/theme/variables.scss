@@ -39,10 +39,10 @@ $colors: (
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
-  preto:      #000000
+  preto:      #000000,
+  azul:       #2addfc
 );
 
-$text-color: white;
 
 // App iOS Variables
 // --------------------------------------------------
@@ -72,7 +72,7 @@ $text-color: white;
 // so that the above variables are used and Ionic's
 // default are overridden.
 
-@import "ionic.theme.dark";
+@import "ionic.theme.default";
 
 
 // Ionicons

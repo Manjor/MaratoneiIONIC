@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { ApresentacaoPage } from '../pages/apresentacao/apresentacao';
+import { Page } from 'ionic-angular/umd/navigation/nav-util';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,4 +22,9 @@ export class MyApp {
       splashScreen.hide();
     });
   }
+
+  
+
+  
+
 }

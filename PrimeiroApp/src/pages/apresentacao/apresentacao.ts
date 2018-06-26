@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
+import { FilmesPage } from '../filmes/filmes';
 
 /**
  * Generated class for the ApresentacaoPage page.
@@ -17,8 +18,9 @@ import { TabsPage } from '../tabs/tabs';
 export class ApresentacaoPage {
 
   constructor(public navCtrl: NavController,
-     public navParams: NavParams)
+     public navParams: NavParams, menu : MenuController)
       {
+        menu.enable(true);
   }
 
   ionViewDidLoad() {
@@ -30,5 +32,9 @@ export class ApresentacaoPage {
   {
     this.navCtrl.push(TabsPage)
 
+  }
+  irFilmes()
+  {
+    this.navCtrl.push(FilmesPage)
   }
 }
