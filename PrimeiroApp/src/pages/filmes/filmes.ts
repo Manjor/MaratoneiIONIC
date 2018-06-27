@@ -38,7 +38,7 @@ export class FilmesPage {
   {
       const loader = this.loadingCtrl.create({
         content: "Carregando Conteudo",
-        duration: 1000
+        duration: 500
       });
       loader.present();
   }

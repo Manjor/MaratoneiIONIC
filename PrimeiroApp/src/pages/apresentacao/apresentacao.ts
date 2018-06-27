@@ -32,21 +32,25 @@ export class ApresentacaoPage {
         menu.enable(true);
   }
 
-  ionViewDidEnter() {
+  ionViewDidLoad() {
     
-    this.movieProvider.pegaUltimosFilmes().subscribe(
+    this.filmesEmCartaz();
+  }
+  
+  filmesEmCartaz()
+  {
+    this.movieProvider.pegaCartaz().subscribe(
       data =>{
         const response = (data as any);
         const resultado = JSON.parse(response._body);
         this.lista_cartaz = resultado.results;
         console.log(resultado);
       },
-      error => {
+      error =>{
         console.log(error);
       }
     )
   }
-
   //Metodo que redireciona para a pagina com Abas
   irTabsPage()
   {

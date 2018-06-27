@@ -100,7 +100,7 @@
         <ion-grid>
           <ion-row>
             <ion-col col-4 *ngFor="let filme of lista_cartaz">
-              <button (click)="irDetalhes(filme)" no-padding><img [src]="'https://image.tmdb.org/t/p/original/' + filme.backdrop_path"></button>
+              <button (click)="irDetalhes(filme)" no-padding><img [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path" alt="{{filme.original_title}}"></button>
             </ion-col>
           </ion-row>
         </ion-grid>
