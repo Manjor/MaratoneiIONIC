@@ -7,8 +7,6 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-import { ProjetosPageModule } from '../pages/projetos/projetos.module';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {HttpModule} from "@angular/http"
@@ -32,7 +30,6 @@ import { FilmesPageModule } from '../pages/filmes/filmes.module';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     //Local onde se declara os modules para a aplicação reconhecer as paginas
-    ProjetosPageModule,
     ApresentacaoPageModule,
     DetalhesPageModule,
     FilmesPageModule,

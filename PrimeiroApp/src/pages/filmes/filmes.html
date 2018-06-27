@@ -16,29 +16,87 @@
     <ion-slides>
       <ion-slide>
         <p no-padding no-margin>
-          <button ion-button small>Todos</button>
-          <button ion-button outline small>Ação</button>
-          <button ion-button outline small>Aventura</button>
-          <button ion-button outline small>></button>
+          <button ion-button color="blue" (click)="ionViewDidEnter()" clear small>Todos</button>
+          <button ion-button color="light" (click)="listaGeneros(28)" clear small>Ação</button>
+          <button ion-button color="light" (click)="listaGeneros(12)" clear small>Aventura</button>
+          <button ion-button color="light" clear small>
+            <ion-icon name="arrow-dropright"></ion-icon>
+          </button>
         </p>
       </ion-slide>
       <ion-slide>
         <p no-padding no-margin>
-            <button ion-button outline small><</button>
-          <button ion-button outline small>Romance</button>
-          <button ion-button outline small>Terror</button>
-          <button ion-button outline small>Ficção</button>
-          <button ion-button outline small>></button>
+          <button ion-button color="light" clear small>
+            <ion-icon name="arrow-dropleft"></ion-icon>
+          </button>
+          <button ion-button color="light" (click)="listaGeneros(35)" clear small>Comédia</button>
+          <button ion-button color="light" (click)="listaGeneros(80)" clear small>Crime</button>
+          <button ion-button color="light" (click)="listaGeneros(18)" clear small>Drama</button>
+          <button ion-button color="light" clear small>
+            <ion-icon name="arrow-dropright"></ion-icon>
+          </button>
+        </p>
+      </ion-slide>
+      <ion-slide>
+        <p no-padding no-margin>
+          <button ion-button color="light" clear small>
+            <ion-icon name="arrow-dropleft"></ion-icon>
+          </button>
+          <button ion-button color="light" (click)="listaGeneros(14)" clear small>Fantasia</button>
+          <button ion-button color="light" (click)="listaGeneros(10749)" clear small>Romance</button>
+          <button ion-button color="light" (click)="listaGeneros(878)" clear small>Ficção</button>
+          <button ion-button color="light"clear small>
+            <ion-icon name="arrow-dropright"></ion-icon>
+          </button>
+        </p>
+        
+      </ion-slide>
+      <ion-slide>
+        <p no-padding no-margin>
+          <button ion-button color="light" clear small>
+            <ion-icon name="arrow-dropleft"></ion-icon>
+          </button>
+          <button ion-button color="light" (click)="listaGeneros(10752)" clear small>Guerra</button>
+          <button ion-button color="light" (click)="listaGeneros(9648)" clear small>Mistério</button>
+          <button ion-button color="light" (click)="listaGeneros(10751)" clear small>Família</button>
+          <button ion-button color="light" clear small>
+            <ion-icon name="arrow-dropright"></ion-icon>
+          </button>
         </p>
         
       </ion-slide>
     </ion-slides>
 
-    
   </ion-toolbar>
 
 </ion-header>
 
-<ion-content padding>
+<ion-content class="card-background-page">
+  <div class="cardFilmes">
+    <ion-card *ngFor="let filme of lista_filmes">
+      <img [src]="'https://image.tmdb.org/t/p/w500/' + filme.backdrop_path">
+      <ion-card-content>
+        <ion-card-title>
+          {{filme.original_title}}
+        </ion-card-title>
+        <p>
+          {{filme.overview}}
+        </p>
+        <a (click)="irDetalhes(filme)" ion-button clear small color="primary">Detalhes</a>
+        <a href="" ion-button clear small color="danger">
+            <ion-icon name="logo-youtube"></ion-icon>
+          </a>
+        <a href="" ion-button clear small color="secondary">
+          <ion-icon name="share"></ion-icon>
+        </a>
+        <a href="" ion-button clear small color="rosa">
+          <ion-icon name="heart"></ion-icon>
+        </a>
+
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
 
 </ion-content>

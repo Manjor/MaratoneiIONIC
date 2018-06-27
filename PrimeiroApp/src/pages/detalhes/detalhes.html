@@ -6,38 +6,32 @@
 -->
 <ion-header class="BarraTitulo">
 
-  <ion-navbar>
+  <ion-navbar color="azul">
     <ion-title>Detalhes</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
-    
 
 <ion-card *ngIf="filme">
-  <ion-card-content padding>
+    <img [src]="'https://image.tmdb.org/t/p/w500/' + filme.poster_path"/>
+  <ion-card-content>
     <ion-card-title>
-      <img [src]="'https://image.tmdb.org/t/p/w500/' + filme.poster_path"/>
-      </ion-card-title>
-      <div class="card-title">
-        <h3 class="texto-branco">
-            {{filme.original_title}}
-        </h3>
-      </div>
-
+      {{filme.original_title}}
+    </ion-card-title>
     <p class="texto-branco" text-justify>
       {{filme.overview}}<br>
       Genero(s): {{filme.genres[0].name}}, {{filme.genres[1].name}}, {{filme.genres[2].name}}<br>
       <a href="{{filme.homepage}}" target="_blank">{{filme.homepage}}</a>
     </p>
-    <p class="texto-branco" *ngFor="let video of lista_videos">
+    <p class="texto-branco" *ngFor="let video of lista_videos" margin-vertical>
       Confira o Trailer
       {{protecaodeVideo(video.key)}}
       <iframe align-center
           width="100%" height="315"
           [src] = "urlVideoSegura"
-          frameborder="0" >
+          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen >
       </iframe>
     </p>
   </ion-card-content>
