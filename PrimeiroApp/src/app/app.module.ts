@@ -16,6 +16,7 @@ import { MovieProvider } from '../providers/movie/movie';
 import { DetalhesPageModule } from '../pages/detalhes/detalhes.module';
 import { FilmesPage } from '../pages/filmes/filmes';
 import { FilmesPageModule } from '../pages/filmes/filmes.module';
+import { SerieProvider } from '../providers/serie/serie';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,9 @@ import { FilmesPageModule } from '../pages/filmes/filmes.module';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    MovieProvider
+    MovieProvider,
+    SerieProvider,
+    SerieProvider
   ]
 })
 export class AppModule {}

@@ -20,7 +20,6 @@ export class MovieProvider {
   private idioma = "&language=pt-BR"
 
   constructor(public http: Http) {
-    console.log('Hello MovieProvider Provider');
   }
 
   //Pega os Filmes mais populares
@@ -51,7 +50,10 @@ export class MovieProvider {
   {
     return this.http.get(this.baseApi + `${filmeid}/videos?api_key=` + this.chaveApi + this.idioma )
   }
-
+  pegaImagens(filmeid)
+  {
+    return this.http.get(this.baseApi + `${filmeid}/images?api_key=` + this.chaveApi + this.idioma)
+  }
   //Metodo que irá obter os filmes atuais em cartaz no cinema
   pegaCartaz()
   {

@@ -12,19 +12,23 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
 <ion-card *ngIf="filme">
     <img [src]="'https://image.tmdb.org/t/p/w500/' + filme.poster_path"/>
   <ion-card-content>
     <ion-card-title>
-      {{filme.original_title}}
+      {{filme.title}}
+      <h2>Estreia: {{filme.release_date}}</h2>
     </ion-card-title>
     <p class="texto-branco" text-justify>
       {{filme.overview}}<br>
       Genero(s): {{filme.genres[0].name}}, {{filme.genres[1].name}}, {{filme.genres[2].name}}<br>
+      Produção: {{filme.production_companies[0].name}}<br>
+
       <a href="{{filme.homepage}}" target="_blank">{{filme.homepage}}</a>
     </p>
+
     <p class="texto-branco" *ngFor="let video of lista_videos" margin-vertical>
       Confira o Trailer
       {{protecaodeVideo(video.key)}}

@@ -29,6 +29,8 @@ export class DetalhesPage {
   public urlVideoSegura;
 
   public lista_videos = new Array<any>();
+  public lista_imagens = new Array<any>();
+
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
      private movieProvider: MovieProvider,
@@ -42,12 +44,17 @@ export class DetalhesPage {
   {
     this.urlVideo = 'https://www.youtube.com/embed/' + key;
     this.urlVideoSegura = this.sanitizer.bypassSecurityTrustResourceUrl(this.urlVideo);
-    console.log(this.urlVideoSegura);
+   
+  }
+  //Metodo iniciado toda vez que entra na pagina
+  ionViewDidEnter() {
+    this.recebeDetalhes();
   }
 
-  ionViewDidEnter() {
+  //Metodo que insere busca os detalhes do filme
+  recebeDetalhes()
+  {
     this.idFilme = this.navParams.get("id");
-    console.log("Id do FIlme: " + this.idFilme)
     this.movieProvider.pegaDetalhes(this.idFilme).subscribe(
       data=>{
         let resultado = (data as any)._body;
@@ -57,18 +64,37 @@ export class DetalhesPage {
         console.log(error);
       });
 
-      this.movieProvider.pegaVideo(this.idFilme).subscribe(
-        data=>{
-          const response = (data as any);
-          const resultado = JSON.parse(response._body);
-          this.lista_videos = resultado.results;
-          console.log(this.lista_videos);
-        },
-        error => {
-          console.log(error);
-        }
-      )
+      this.recebeVideo();
+      this.recebeImagens();
 
+  }
+  //Metodo que lista os videos referentes ao Filme
+  recebeVideo()
+  {
+    this.movieProvider.pegaVideo(this.idFilme).subscribe(
+      data=>{
+        const response = (data as any);
+        const resultado = JSON.parse(response._body);
+        this.lista_videos = resultado.results;
+      },
+      error => {
+        console.log(error);
+      }
+    )
+  }
+
+  recebeImagens()
+  {
+    this.movieProvider.pegaImagens(this.idFilme).subscribe(
+      data =>{
+        const response = (data as any);
+        const resultado = JSON.parse(response._body);
+        this.lista_imagens = resultado.backdrops;
+      },
+      error =>{
+        console.log(error);
+      }
+    )
   }
 
 

@@ -31,38 +31,33 @@ export class FilmesPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FilmesPage');
   }
 
-  carregaConteudo()
+  carregaConteudo(duracao)
   {
       const loader = this.loadingCtrl.create({
         content: "Carregando Conteudo",
-        duration: 500
+        duration: duracao
       });
       loader.present();
   }
   //Metodo que redireciona para a pagina de Detalhes
   irDetalhes(filme)
   {
-    console.log(filme);
-    
     this.navCtrl.push(DetalhesPage,{
       id: filme.id
     });
-    console.log(filme.id);
     
   }
 
   listaGeneros(id)
   {
-    this.carregaConteudo();
+    this.carregaConteudo(1000);
     this.movieProvider.pegaGenero(id).subscribe(
       data =>{
         const response = (data as any);
         const resultado = JSON.parse(response._body);
         this.lista_filmes = resultado.results;
-        console.log(resultado);
       },
       error => {
         console.log(error);
@@ -72,13 +67,13 @@ export class FilmesPage {
 
   ionViewDidEnter()
   {
-    this.carregaConteudo()
+    this.carregaConteudo(500)
     this.movieProvider.pegaUltimosFilmes().subscribe(
       data =>{
         const response = (data as any);
         const resultado = JSON.parse(response._body);
         this.lista_filmes = resultado.results;
-        console.log(resultado);
+
       },
       error => {
         console.log(error);
