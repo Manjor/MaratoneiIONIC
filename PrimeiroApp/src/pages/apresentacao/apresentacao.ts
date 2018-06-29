@@ -5,6 +5,7 @@ import { FilmesPage } from '../filmes/filmes';
 import { MovieProvider } from '../../providers/movie/movie';
 import { DetalhesPage } from '../detalhes/detalhes';
 import { SerieProvider } from '../../providers/serie/serie';
+import { SeriesPage } from '../series/series';
 
 /**
  * Generated class for the ApresentacaoPage page.
@@ -81,6 +82,10 @@ export class ApresentacaoPage {
   {
     this.navCtrl.push(TabsPage)
 
+  }
+  irSeries()
+  {
+    this.navCtrl.push(SeriesPage)
   }
   irFilmes()
   {

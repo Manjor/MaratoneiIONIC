@@ -1,0 +1,49 @@
+<!--
+  Generated template for the DetalhesSeriePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detalhes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content>
+  <ion-card *ngIf="serie">
+      <img [src]="'https://image.tmdb.org/t/p/w500/' + serie.poster_path"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{serie.name}}
+      </ion-card-title>
+      <p>
+        {{serie.overview}} <br>
+        Criado por: {{serie.created_by[0].name}}
+      </p>
+      <p>
+        Lançamento: {{serie.first_air_date}} <br>
+        Website: <a href="{{serie.homepage}}" target="_blank">{{serie.homepage}}</a> 
+      </p>
+      <div>
+        <ul>
+          <li>{{serie.number_of_seasons}} Temporada(s)</li>
+          <li>{{serie.number_of_episodes}} Episódios</li>
+        </ul>
+      </div>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4 *ngFor="let sessao of serie.seasons">
+            <img class="img-temporada" [src]="'https://image.tmdb.org/t/p/w300/' + sessao.poster_path"/>
+            <p>{{sessao.episode_count}} Epsódios</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

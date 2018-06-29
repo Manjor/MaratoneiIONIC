@@ -56,7 +56,7 @@
           <img class="imgSeries" [src]="'https://image.tmdb.org/t/p/w500/' + serie.backdrop_path" alt="{{serie.name}}">
         </ion-card-content>
       </ion-card>
-      <button class="botaoSeries" ion-button clear color="azul">VER MAIS SERIES</button>
+      <button class="botaoSeries" (click)="irSeries()" ion-button clear color="azul">VER MAIS SERIES</button>
     </div>
     
   </div>

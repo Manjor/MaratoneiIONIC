@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MovieProvider } from '../../providers/movie/movie';
 import { Jsonp } from '@angular/http';
 import { DomSanitizer } from '@angular/platform-browser';
+import { SerieProvider } from '../../providers/serie/serie';
 
 /**
  * Generated class for the DetalhesPage page.
@@ -22,6 +23,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class DetalhesPage {
 
   public idFilme;
+  
   public filme;
   public fotos;
   public video;
@@ -50,7 +52,7 @@ export class DetalhesPage {
   ionViewDidEnter() {
     this.recebeDetalhes();
   }
-
+  
   //Metodo que insere busca os detalhes do filme
   recebeDetalhes()
   {

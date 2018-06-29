@@ -17,6 +17,9 @@ import { DetalhesPageModule } from '../pages/detalhes/detalhes.module';
 import { FilmesPage } from '../pages/filmes/filmes';
 import { FilmesPageModule } from '../pages/filmes/filmes.module';
 import { SerieProvider } from '../providers/serie/serie';
+import { SeriesPageModule } from '../pages/series/series.module';
+import { DetalhesSeriePage } from '../pages/detalhes-serie/detalhes-serie';
+import { DetalhesSeriePageModule } from '../pages/detalhes-serie/detalhes-serie.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,8 @@ import { SerieProvider } from '../providers/serie/serie';
     ApresentacaoPageModule,
     DetalhesPageModule,
     FilmesPageModule,
+    SeriesPageModule,
+    DetalhesSeriePageModule,
     //Inclue o modulo http para Consumo de APIS
     HttpModule
   ],
@@ -51,7 +56,6 @@ import { SerieProvider } from '../providers/serie/serie';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MovieProvider,
-    SerieProvider,
     SerieProvider
   ]
 })

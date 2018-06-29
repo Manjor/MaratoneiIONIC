@@ -23,4 +23,8 @@ export class SerieProvider {
     return this.http.get(this.baseApi + "popular?api_key=" + this.chaveApi + this.idioma)
   }
 
+  pegaDetalhes(serieid){
+    return this.http.get(this.baseApi + `${serieid}?api_key=` + this.chaveApi + this.idioma)
+  }
+
 }
