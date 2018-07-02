@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, LoadingController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { FilmesPage } from '../filmes/filmes';
 import { MovieProvider } from '../../providers/movie/movie';
 import { DetalhesPage } from '../detalhes/detalhes';
 import { SerieProvider } from '../../providers/serie/serie';
 import { SeriesPage } from '../series/series';
+import { removeArrayItem } from 'ionic-angular/umd/util/util';
 
 /**
  * Generated class for the ApresentacaoPage page.
@@ -25,21 +26,23 @@ import { SeriesPage } from '../series/series';
 })
 export class ApresentacaoPage {
 
-  public lista_cartaz = new Array<any>();
+  lista_cartaz = new Array<any>();
   public lista_series = new Array<any>();
+  public lista_filmes = new Array<any>();
+  filmes: string = "Filmes";
+  categoria: string = "Categorias";
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams, menu : MenuController,
      private movieProvider: MovieProvider,
-     private serieProvider: SerieProvider
+     private serieProvider: SerieProvider,
+     public loadingCtrl: LoadingController
     )
       {
         menu.enable(true);
   }
 
   ionViewDidLoad() {
-    
-    this.filmesEmCartaz();
     this.seriesPopulares();
   }
   //Metodo que busca os principais filmes em cartaz da regiao
@@ -49,7 +52,10 @@ export class ApresentacaoPage {
       data =>{
         const response = (data as any);
         const resultado = JSON.parse(response._body);
+        var i;
+        this.lista_cartaz = [];
         this.lista_cartaz = resultado.results;
+        this.lista_filmes = this.lista_cartaz;
       },
       error =>{
         console.log(error);
@@ -65,7 +71,7 @@ export class ApresentacaoPage {
         const response = (data as any);
         const resultado = JSON.parse(response._body);
         var i;
-        for(i = 0; i <3; i++)
+        for(i = 0; i <1; i++)
         {
           this.lista_series.push(resultado.results[i])
         }
@@ -76,6 +82,49 @@ export class ApresentacaoPage {
       }
     )
 
+  }
+  carregaConteudo(duracao)
+  {
+      const loader = this.loadingCtrl.create({
+        content: "Carregando Conteudo",
+        duration: duracao
+      });
+      loader.present();
+  }
+
+  ionViewDidEnter()
+  {
+    this.filmesEmCartaz()
+  }
+
+
+  filmePopulares()
+  {
+    this.carregaConteudo(500)
+    this.movieProvider.pegaUltimosFilmes().subscribe(
+      data =>{
+        const response = (data as any);
+        const resultado = JSON.parse(response._body);
+        this.lista_filmes = resultado.results;
+
+      },
+      error => {
+        console.log(error);
+      }
+    )
+  }
+  listaGeneros(id)
+  {
+    this.movieProvider.pegaGenero(id).subscribe(
+      data =>{
+        const response = (data as any);
+        const resultado = JSON.parse(response._body);
+        this.lista_filmes = resultado.results;
+      },
+      error => {
+        console.log(error);
+      }
+    )
   }
   //Metodo que redireciona para a pagina com Abas
   irTabsPage()

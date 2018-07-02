@@ -1,31 +1,41 @@
 page-apresentacao {
 
+    @media only screen and(max-width: 360px) {
+        
+        .btnCat{
+            font-size: 10px;
+        }
+       
+    }
+    .navbar{
+        height: 150px;
+    }
+    
+    #titulo{
+        margin: 0 auto;
+    }
+    .opcoesIniciais{
+        height: 30px;
+    }
+    #fabFilmes{
+        margin-top: -15px;
+    }
     .img-slide
     {
         width: 240px;
 
     }
-    .botaoFilmes{
-        margin-top: -40px; 
-        width: 10pc;
-        background-color: black;
-    }
+    
     .img-slides{
         height: 100;
     }
     .divIntro
     {
-        background: #2addfc;
-        color: black;
         height: 100px;
     }
     .botaoSeries{
         width: 60%;
         margin-top: -10px;
     }
-    ion-navbar {
-        background: red !important;
-    }
-
-
+   
 }

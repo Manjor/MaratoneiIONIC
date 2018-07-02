@@ -1,63 +1,117 @@
-<!--
-  Generated template for the ApresentacaoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-
+<!-- Cabeçalho -->
 <ion-header>
-    <ion-navbar color="azul">
-      <button ion-button menuToggle icon-only>
-        <ion-icon name='menu'></ion-icon>
+  <ion-navbar color="vermelho2">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>
+      Cine Home
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="md-search"></ion-icon>
       </button>
-      <ion-title>Cine Home</ion-title>
-    </ion-navbar>
+      <button ion-button icon-only>
+        <ion-icon name="md-contact"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar color="preto" no-border-top>
+      <ion-segment [(ngModel)]="filmes">
+        <ion-segment-button value="Filmes" item-start>
+          Filmes
+        </ion-segment-button>
+        <ion-segment-button class="btnSeg" value="Series">
+          Series
+        </ion-segment-button>
+        <ion-segment-button value="Lista">
+          Meus Favoritos
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
 </ion-header>
-<ion-content>
-    <div class="divIntro">
-      <div text-center padding no-margin >
-        <h5>Sinopses, Videos, Classificação e muito mais sobre Filmes e Series.</h5>
-      </div>
-    </div>
-  <div text-center>
-      <button class="botaoFilmes" ion-button (click)="irFilmes()">Ver Filmes</button>
-  </div>
 
-  <div padding-horizontal margin-horizontal>
-    <form action="">
-      <ion-item padding-horizontal>
-          <ion-input placeholder="Pesquisar filmes e series"></ion-input>
-      </ion-item>
-    </form>
-  </div>
-  
-  <div>
-  </div>
-  <div>
-    <ion-card>
-      <ion-card-content>
-        <ion-card-title>
-          Filmes em Cartaz
-        </ion-card-title>
-        <ion-grid>
-          <ion-row>
-            <ion-col col-4 *ngFor="let filme of lista_cartaz">
-              <button (click)="irDetalhes(filme)" no-padding><img [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path" alt="{{filme.title}}"></button>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-        <button ion-button block clear color="azul">Ver Cinemas Proximos</button>
-      </ion-card-content>
-    </ion-card>
-    <div text-center>
-      <h2>Series Populares</h2>
-      <ion-card  *ngFor="let serie of lista_series">
+<ion-content>
+  <div [ngSwitch]="filmes">
+    <ion-list *ngSwitchCase="'Filmes'">
+      <ion-toolbar color="dark">
+            <ion-slides>
+              <ion-slide>
+                <p class="slide1" no-padding no-margin>
+                  <button ion-button color="light" (click)="filmesEmCartaz()" clear small class="btnCat">Em Cartaz</button>
+                  <button ion-button color="light" (click)="filmePopulares()" clear small class="btnCat">Populares</button>
+                  <button ion-button color="light" (click)="listaGeneros(28)" clear small class="btnCat">Ação</button>
+                  <button ion-button color="light" (click)="listaGeneros(12)" clear small class="btnCat">Aventura</button>
+                </p>
+              </ion-slide>
+              <ion-slide>
+                <p no-padding no-margin>
+                  <button ion-button color="light" (click)="listaGeneros(35)" clear small class="btnCat">Comédia</button>
+                  <button ion-button color="light" (click)="listaGeneros(80)" clear small class="btnCat">Crime</button>
+                  <button ion-button color="light" (click)="listaGeneros(18)" clear small class="btnCat">Drama</button>
+                  <button ion-button color="light" (click)="listaGeneros(14)" clear small class="btnCat">Fantasia</button>
+                </p>
+              </ion-slide>
+              <ion-slide>
+                <p no-padding no-margin>
+                  
+                  <button ion-button color="light" (click)="listaGeneros(10749)" clear small class="btnCat">Romance</button>
+                  <button ion-button color="light" (click)="listaGeneros(878)" clear small class="btnCat">Ficção</button>
+                  <button ion-button color="light" (click)="listaGeneros(10752)" clear small class="btnCat">Guerra</button>
+                  <button ion-button color="light" (click)="listaGeneros(9648)" clear small class="btnCat">Mistério</button>
+                </p>
+                
+              </ion-slide>
+            </ion-slides>
+          </ion-toolbar>
+   
+      <p text-center>
+        <a ion-button small no-margin outline color="vinho" >Buscar Cinemas</a>
+      </p>
+      <ion-card *ngFor="let filme of lista_filmes">
+        <img [src]="'https://image.tmdb.org/t/p/w500/' + filme.backdrop_path" alt="{{filme.title}}">
         <ion-card-content no-padding>
-          <img class="imgSeries" [src]="'https://image.tmdb.org/t/p/w500/' + serie.backdrop_path" alt="{{serie.name}}">
+          <ion-grid>
+            <ion-row>
+              <ion-col col-9><p>{{filme.title}}</p></ion-col>
+              <ion-col col-3>
+                <ion-buttons end>
+                  <a ion-link end (click)="irDetalhes(filme)">Detalhes</a>
+                </ion-buttons>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
         </ion-card-content>
       </ion-card>
-      <button class="botaoSeries" (click)="irSeries()" ion-button clear color="azul">VER MAIS SERIES</button>
-    </div>
+      
+    </ion-list>
     
+    <ion-list *ngSwitchCase="'Series'">
+
+        <ion-item>
+            <div text-center>
+                <h2>Series Populares</h2>
+                <ion-card  *ngFor="let serie of lista_series">
+                  <ion-card-content no-padding>
+                    <img class="imgSeries" [src]="'https://image.tmdb.org/t/p/w500/' + serie.backdrop_path" alt="{{serie.name}}">
+                  </ion-card-content>
+                </ion-card>
+                <button class="botaoSeries" (click)="irSeries()" ion-button clear color="azul">VER MAIS SERIES</button>
+              </div>
+        </ion-item>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'Lista'">
+
+        <ion-item>
+              
+        </ion-item>
+      </ion-list>
   </div>
+  <ion-fab right bottom>
+    <button ion-fab small color="vermelho2" mini  id="botaoTop">+</button>
+    <ion-fab-list side="left">
+      <button ion-button small color="vermelho">Cinemas Proximos</button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>

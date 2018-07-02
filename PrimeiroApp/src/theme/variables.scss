@@ -41,9 +41,22 @@ $colors: (
   dark:       #222,
   preto:      #000000,
   azul:       #2addfc,
-  rosa:       #f7078f,
+  vermelho:       #ff1744,
+  vermelho2: #A62247,
+  vinho: #890060,
+  roxo: #890091,
+  azul2: #00FFFF,
+  verde: #00FFC0,
+
 );
 
+$text-color: white;
+$card-md-text-color: white;
+$card-md-title-text-color: white;
+$segment-button-md-border-color-activated: #A62247;
+$segment-button-md-text-color-activated: #A62247;
+$segment-button-md-font-size: 1.3rem;
+$button-md-outline-border-width: 1px 0;
 
 // App iOS Variables
 // --------------------------------------------------
@@ -73,7 +86,7 @@ $colors: (
 // so that the above variables are used and Ionic's
 // default are overridden.
 
-@import "ionic.theme.default";
+@import "ionic.theme.dark";
 
 
 // Ionicons

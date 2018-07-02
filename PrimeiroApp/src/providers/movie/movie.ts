@@ -57,7 +57,7 @@ export class MovieProvider {
   //Metodo que irá obter os filmes atuais em cartaz no cinema
   pegaCartaz()
   {
-    return this.http.get(this.baseApi + "upcoming?api_key=" + this.chaveApi + this.idioma + "&region=BR")
+    return this.http.get(this.baseApi + "upcoming?api_key=" + this.chaveApi + this.idioma)
   }
   
 }

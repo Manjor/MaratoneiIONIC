@@ -32,6 +32,7 @@ export class DetalhesPage {
 
   public lista_videos = new Array<any>();
   public lista_imagens = new Array<any>();
+  segmento: String = "Sobre"
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
