@@ -25,9 +25,7 @@ export class MovieProvider {
   //Pega os Filmes mais populares
   pegaUltimosFilmes()
   {
-    
-    return this.http.get(this.baseApi + "popular?api_key=" + this.chaveApi + this.idioma)
-    
+    return this.http.get(this.baseApi + "popular?api_key=" + this.chaveApi + this.idioma) 
   }
   //Metodo que busca os detalhes do filme na API de filmes
   pegaDetalhes(filmeid)

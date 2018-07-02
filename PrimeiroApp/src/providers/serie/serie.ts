@@ -17,9 +17,7 @@ export class SerieProvider {
 
   constructor(public http: Http) {
   }
-
   pegaSeriesPopulares(){
-
     return this.http.get(this.baseApi + "popular?api_key=" + this.chaveApi + this.idioma)
   }
 

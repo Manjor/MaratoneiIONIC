@@ -40,21 +40,26 @@ export class ApresentacaoPage {
     )
       {
         menu.enable(true);
+        this.filmesEmCartaz();
   }
 
-  ionViewDidLoad() {
-    this.seriesPopulares();
-  }
+  
+  
   //Metodo que busca os principais filmes em cartaz da regiao
   filmesEmCartaz()
   {
+    this.carregaConteudo(500);
     this.movieProvider.pegaCartaz().subscribe(
       data =>{
         const response = (data as any);
         const resultado = JSON.parse(response._body);
         var i;
         this.lista_cartaz = [];
-        this.lista_cartaz = resultado.results;
+        for(i = 0; i < 6; i++)
+        {
+          this.lista_cartaz.push(resultado.results[i]);
+        }
+
         this.lista_filmes = this.lista_cartaz;
       },
       error =>{
@@ -92,12 +97,6 @@ export class ApresentacaoPage {
       loader.present();
   }
 
-  ionViewDidEnter()
-  {
-    this.filmesEmCartaz()
-  }
-
-
   filmePopulares()
   {
     this.carregaConteudo(500)
@@ -115,6 +114,7 @@ export class ApresentacaoPage {
   }
   listaGeneros(id)
   {
+    this.carregaConteudo(500);
     this.movieProvider.pegaGenero(id).subscribe(
       data =>{
         const response = (data as any);
