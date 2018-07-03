@@ -19,8 +19,15 @@ import { SerieProvider } from '../../providers/serie/serie';
 })
 export class DetalhesSeriePage {
 
+
+  segmento: String ="Sobre"
+  temp : String = "temps"
+
+
   public idSerie;
   public serie;
+  public temporada;
+  public lista_episodios = new Array<any>();
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
@@ -46,4 +53,23 @@ export class DetalhesSeriePage {
         console.log(error);
       });
   }
+
+  detalhesTemporada(idTemporada = 1)
+  {
+
+    this.idSerie = this.navParams.get("id");
+    this.serieProvider.pegaTemporada(this.idSerie,idTemporada).subscribe(
+      data =>{
+        let resultado = (data as any)._body;
+        this.temporada = JSON.parse(resultado);
+        console.log(resultado);
+      },
+      error =>{
+        console.log(error);
+      }
+    )
+  }
+
+
+
 }

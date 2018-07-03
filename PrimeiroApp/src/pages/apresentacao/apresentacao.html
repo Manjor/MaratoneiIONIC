@@ -89,26 +89,27 @@
     </ion-list>
     
     <ion-list *ngSwitchCase="'Series'">
-
-        <ion-item>
-            <div text-center>
-                <h2>Series Populares</h2>
-                <ion-card  *ngFor="let serie of lista_series">
-                  <ion-card-content no-padding>
-                    <img class="imgSeries" [src]="'https://image.tmdb.org/t/p/w500/' + serie.backdrop_path" alt="{{serie.name}}">
-                  </ion-card-content>
-                </ion-card>
-                <button class="botaoSeries" (click)="irSeries()" ion-button clear color="azul">VER MAIS SERIES</button>
-              </div>
-        </ion-item>
-      </ion-list>
-
-      <ion-list *ngSwitchCase="'Lista'">
-
-        <ion-item>
+        <ion-card *ngFor="let serie of lista_series">
+           <img width="100%"  [src]="'https://image.tmdb.org/t/p/w500/' + serie.backdrop_path" alt="{{serie.name}}">
+          <ion-card-content no-padding>
+           <ion-grid>
+            <ion-row>
+              <ion-col col-9><p>{{serie.name}}</p></ion-col>
+              <ion-col col-3>
+                <ion-buttons end>
+                  <a ion-link end (click)="irDetalhesSeries(serie)">Detalhes</a>
+                </ion-buttons>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          </ion-card-content>
+        </ion-card>
+    </ion-list>
+    <ion-list *ngSwitchCase="'Lista'">
+      <ion-item>
               
-        </ion-item>
-      </ion-list>
+      </ion-item>
+    </ion-list>
   </div>
   <ion-fab right bottom>
     <button ion-fab small color="vermelho2" mini  id="botaoTop">+</button>

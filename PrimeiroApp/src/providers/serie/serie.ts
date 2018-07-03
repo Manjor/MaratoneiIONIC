@@ -24,5 +24,9 @@ export class SerieProvider {
   pegaDetalhes(serieid){
     return this.http.get(this.baseApi + `${serieid}?api_key=` + this.chaveApi + this.idioma)
   }
+  pegaTemporada(serieid,numTemporada)
+  {
+    return this.http.get(this.baseApi + `${serieid}/season/${numTemporada}?api_key=` + this.chaveApi + this.idioma)
+  }
 
 }

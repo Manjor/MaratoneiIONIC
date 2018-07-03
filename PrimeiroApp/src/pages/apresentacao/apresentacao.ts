@@ -7,6 +7,7 @@ import { DetalhesPage } from '../detalhes/detalhes';
 import { SerieProvider } from '../../providers/serie/serie';
 import { SeriesPage } from '../series/series';
 import { removeArrayItem } from 'ionic-angular/umd/util/util';
+import { DetalhesSeriePage } from '../detalhes-serie/detalhes-serie';
 
 /**
  * Generated class for the ApresentacaoPage page.
@@ -41,6 +42,7 @@ export class ApresentacaoPage {
       {
         menu.enable(true);
         this.filmesEmCartaz();
+        this.seriesPopulares();
   }
 
   
@@ -71,15 +73,13 @@ export class ApresentacaoPage {
   //Metodo que busca as series mais populares
   seriesPopulares()
   {
+    
     this.serieProvider.pegaSeriesPopulares().subscribe(
       data=> {
         const response = (data as any);
         const resultado = JSON.parse(response._body);
         var i;
-        for(i = 0; i <1; i++)
-        {
-          this.lista_series.push(resultado.results[i])
-        }
+        this.lista_series = resultado.results
         console.log(resultado);
       },
       error =>{
@@ -87,6 +87,13 @@ export class ApresentacaoPage {
       }
     )
 
+  }
+
+  irDetalhesSeries(serie)
+  {
+    this.navCtrl.push(DetalhesSeriePage,{
+      id: serie.id
+    });
   }
   carregaConteudo(duracao)
   {
