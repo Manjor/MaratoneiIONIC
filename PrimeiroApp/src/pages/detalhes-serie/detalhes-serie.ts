@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { SerieProvider } from '../../providers/serie/serie';
 
 /**
@@ -31,12 +31,22 @@ export class DetalhesSeriePage {
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
-     private serieProvider: SerieProvider
+     private serieProvider: SerieProvider,
+     private loadingCtrl: LoadingController
     ) {
   }
 
   ionViewDidLoad() {
     this.recebeDetalhes();
+  }
+
+  carregaConteudo(duracao)
+  {
+      const loader = this.loadingCtrl.create({
+        content: "Carregando Conteudo",
+        duration: duracao
+      });
+      loader.present();
   }
 
   //Metodo que insere busca os detalhes do filme
@@ -54,9 +64,10 @@ export class DetalhesSeriePage {
       });
   }
 
-  detalhesTemporada(idTemporada = 1)
+  detalhesTemporada(idTemporada)
   {
 
+    this.carregaConteudo(500);
     this.idSerie = this.navParams.get("id");
     this.serieProvider.pegaTemporada(this.idSerie,idTemporada).subscribe(
       data =>{
