@@ -8,10 +8,10 @@
       Cine Home
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only>
+      <button (click)="abriBusca()" ion-button icon-only>
         <ion-icon name="md-search"></ion-icon>
       </button>
-      <button ion-button icon-only>
+      <button (click)="irLogin()" ion-button icon-only>
         <ion-icon name="md-contact"></ion-icon>
       </button>
     </ion-buttons>
@@ -25,7 +25,7 @@
           Series
         </ion-segment-button>
         <ion-segment-button value="Lista">
-          Meus Favoritos
+          Favoritos
         </ion-segment-button>
       </ion-segment>
     </ion-toolbar>

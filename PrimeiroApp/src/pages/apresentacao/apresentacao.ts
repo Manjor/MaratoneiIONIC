@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, LoadingController, ModalController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { FilmesPage } from '../filmes/filmes';
 import { MovieProvider } from '../../providers/movie/movie';
@@ -8,6 +8,8 @@ import { SerieProvider } from '../../providers/serie/serie';
 import { SeriesPage } from '../series/series';
 import { removeArrayItem } from 'ionic-angular/umd/util/util';
 import { DetalhesSeriePage } from '../detalhes-serie/detalhes-serie';
+import { LoginPage } from '../login/login';
+import { ModalBuscaPage } from '../modal-busca/modal-busca';
 
 /**
  * Generated class for the ApresentacaoPage page.
@@ -37,7 +39,8 @@ export class ApresentacaoPage {
      public navParams: NavParams, menu : MenuController,
      private movieProvider: MovieProvider,
      private serieProvider: SerieProvider,
-     public loadingCtrl: LoadingController
+     public loadingCtrl: LoadingController,
+     public modalCtrl: ModalController
     )
       {
         menu.enable(true);
@@ -133,11 +136,34 @@ export class ApresentacaoPage {
       }
     )
   }
+
+
+  abriBusca(){
+    const modal = this.modalCtrl.create(ModalBuscaPage);
+    modal.present();
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   //Metodo que redireciona para a pagina com Abas
   irTabsPage()
   {
-    this.navCtrl.push(TabsPage)
-
+    this.navCtrl.push(TabsPage);
+  }
+  irLogin()
+  {
+    this.navCtrl.push(LoginPage);
   }
   irSeries()
   {

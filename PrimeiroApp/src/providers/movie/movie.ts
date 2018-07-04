@@ -16,11 +16,19 @@ export class MovieProvider {
 
   private baseApi = "https://api.themoviedb.org/3/movie/"
   private baseApiGenero = "https://api.themoviedb.org/3/genre/"
+  private baseBusca = "https://api.themoviedb.org/3/"
   private chaveApi = ""
   private idioma = "&language=pt-BR"
+  private busca = "&query=";
 
   constructor(public http: Http) {
   }
+
+  buscar(busca : string)
+  {
+    return this.http.get(this.baseBusca + "search/movie?api_key=" + this.chaveApi + "&query=" + busca + this.idioma)
+  }
+
 
   //Pega os Filmes mais populares
   pegaUltimosFilmes()

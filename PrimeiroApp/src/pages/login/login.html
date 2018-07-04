@@ -1,0 +1,34 @@
+
+<ion-header>
+  <ion-navbar color="preto">
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="divIntro" text-center padding-vertical>
+    <ion-title padding>
+      <h1>Bem-Vindo ao Cine Home</h1>
+    </ion-title>
+    <p>Faça Login para ver sua lista de favoritos.</p>
+  </div>
+
+  <div class="divLogin" margin>
+    <div  margin padding>
+      <ion-label>Login</ion-label>
+      <ion-input border-bottom type="email" placeholder="Email"></ion-input>
+      <ion-label>Senha</ion-label>
+      <ion-input placeholder="Sua Senha"></ion-input>
+      <div text-center>
+        <button ion-button block color="dark" margin-vertical>Acessar</button>
+        <p>Novo Usuario ? <a ion-link>Cadastre-se</a></p>
+        <button ion-button outline small color="dark" margin-vertical (click)="irApresentacao()" >Acesso Visitante</button>
+      </div>
+    </div>
+
+  </div>
+  
+
+
+</ion-content>

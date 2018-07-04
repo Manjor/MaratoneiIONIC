@@ -20,6 +20,10 @@ import { SerieProvider } from '../providers/serie/serie';
 import { SeriesPageModule } from '../pages/series/series.module';
 import { DetalhesSeriePage } from '../pages/detalhes-serie/detalhes-serie';
 import { DetalhesSeriePageModule } from '../pages/detalhes-serie/detalhes-serie.module';
+import { LoginPageModule } from '../pages/login/login.module';
+import { ModalBuscaPageModule } from '../pages/modal-busca/modal-busca.module';
+import { CadastroUsuarioPage } from '../pages/cadastro-usuario/cadastro-usuario';
+import { CadastroUsuarioPageModule } from '../pages/cadastro-usuario/cadastro-usuario.module';
 
 @NgModule({
   declarations: [
@@ -39,6 +43,9 @@ import { DetalhesSeriePageModule } from '../pages/detalhes-serie/detalhes-serie.
     FilmesPageModule,
     SeriesPageModule,
     DetalhesSeriePageModule,
+    LoginPageModule,
+    ModalBuscaPageModule,
+    CadastroUsuarioPageModule,
     //Inclue o modulo http para Consumo de APIS
     HttpModule
   ],
