@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>Detalhes</ion-title>
+    <ion-title color="vermelho2">Detalhes</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -28,9 +28,10 @@
           Mais
         </ion-segment-button>
       </ion-segment>
-    </ion-toolbar>
+  </ion-toolbar>
 
     <div [(ngSwitch)]="segmento">
+
         <ion-list *ngSwitchCase="'Sobre'" item-start>
           <ion-card>
             <ion-card-content>
@@ -43,6 +44,7 @@
             </ion-card-content>
           </ion-card>
         </ion-list>
+
         <ion-list *ngSwitchCase="'Temporadas'">
           <ion-card>
             <ion-item>
@@ -55,16 +57,12 @@
             </ion-item>
           </ion-card>
 
-          <ion-card *ngIf="temporada">
-            <ion-card-content>
-              {{temporada.name}}
-              <p>
-                {{temporada.overview}}
-              </p>
-              Episódios:
-              <ion-list *ngFor="let ep of temporada.episodes">
-                <ion-item>
-                  <p>{{ep.episode_number}} - {{ep.name}}</p>
+          <div *ngIf="temporada">
+            <ion-card *ngFor="let ep of temporada.episodes">
+              <ion-card-content>
+                <ion-card-title>
+                  <h3>{{ep.episode_number}} - {{ep.name}}</h3>
+                </ion-card-title>
                   <p>{{ep.overview}}</p>
                   <ion-buttons end>
                       <button ion-button clear icon-only>
@@ -74,18 +72,10 @@
                         Ver mais
                       </button>
                     </ion-buttons>
-                </ion-item>
-              </ion-list>
-            </ion-card-content>
-          </ion-card>
-        </ion-list>
-
-
-
+              </ion-card-content>
+            </ion-card>
+          </div>
+      </ion-list>
     </div>
-
-
-
   </div>
-
 </ion-content>

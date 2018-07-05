@@ -24,7 +24,9 @@ import { LoginPageModule } from '../pages/login/login.module';
 import { ModalBuscaPageModule } from '../pages/modal-busca/modal-busca.module';
 import { CadastroUsuarioPage } from '../pages/cadastro-usuario/cadastro-usuario';
 import { CadastroUsuarioPageModule } from '../pages/cadastro-usuario/cadastro-usuario.module';
-
+import { GoogleMaps } from "@ionic-native/google-maps";
+import { MapaCinemasPageModule } from '../pages/mapa-cinemas/mapa-cinemas.module';
+import {Geolocation} from '@ionic-native/geolocation'
 @NgModule({
   declarations: [
     MyApp,
@@ -46,6 +48,7 @@ import { CadastroUsuarioPageModule } from '../pages/cadastro-usuario/cadastro-us
     LoginPageModule,
     ModalBuscaPageModule,
     CadastroUsuarioPageModule,
+    MapaCinemasPageModule,
     //Inclue o modulo http para Consumo de APIS
     HttpModule
   ],
@@ -63,7 +66,9 @@ import { CadastroUsuarioPageModule } from '../pages/cadastro-usuario/cadastro-us
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MovieProvider,
-    SerieProvider
+    SerieProvider,
+    GoogleMaps,
+    Geolocation
   ]
 })
 export class AppModule {}

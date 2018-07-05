@@ -31,7 +31,7 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="card-background-page">
   <div [ngSwitch]="filmes">
     <ion-list *ngSwitchCase="'Filmes'">
       <ion-toolbar color="dark">
@@ -71,6 +71,9 @@
       <ion-card *ngFor="let filme of lista_filmes">
         <a (click)="irDetalhes(filme)" >
         <img [src]="'https://image.tmdb.org/t/p/w500/' + filme.backdrop_path" alt="{{filme.title}}">
+        <button ion-fab mini >
+          <ion-icon name="heart"></ion-icon>
+        </button>
         </a>
         <ion-card-content no-padding>
           <ion-grid>
@@ -78,7 +81,7 @@
               <ion-col col-9><p>{{filme.title}}</p></ion-col>
               <ion-col col-3>
                 <ion-buttons end>
-                  <a ion-link end (click)="irDetalhes(filme)">Detalhes</a>
+                  <a ion-link end class="linkDetalhes" (click)="irDetalhes(filme)">Detalhes</a>
                 </ion-buttons>
               </ion-col>
             </ion-row>
@@ -89,21 +92,23 @@
     </ion-list>
     
     <ion-list *ngSwitchCase="'Series'">
-        <ion-card *ngFor="let serie of lista_series">
-           <img width="100%"  [src]="'https://image.tmdb.org/t/p/w500/' + serie.backdrop_path" alt="{{serie.name}}">
-          <ion-card-content no-padding>
-           <ion-grid>
-            <ion-row>
-              <ion-col col-9><p>{{serie.name}}</p></ion-col>
-              <ion-col col-3>
-                <ion-buttons end>
-                  <a ion-link end (click)="irDetalhesSeries(serie)">Detalhes</a>
-                </ion-buttons>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-          </ion-card-content>
-        </ion-card>
+      <ion-card *ngFor="let serie of lista_series">
+        <img width="100%"  [src]="'https://image.tmdb.org/t/p/w500/' + serie.backdrop_path" alt="{{serie.name}}">
+        <ion-card-content no-padding>
+            <ion-grid>
+             <ion-row>
+               <ion-col col-9>
+                 {{serie.name}}
+               </ion-col>
+               <ion-col col-3>
+                 <ion-buttons end>
+                   <a ion-link end class="linkDetalhes" (click)="irDetalhesSeries(serie)">Detalhes</a>
+                 </ion-buttons>
+               </ion-col>
+             </ion-row>
+           </ion-grid>
+           </ion-card-content>
+      </ion-card>
     </ion-list>
     <ion-list *ngSwitchCase="'Lista'">
       <ion-item>
@@ -117,4 +122,5 @@
       <button ion-button small color="vermelho">Cinemas Proximos</button>
     </ion-fab-list>
   </ion-fab>
+
 </ion-content>
