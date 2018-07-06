@@ -12,7 +12,7 @@ import { Http } from '@angular/http';
 export class SerieProvider {
 
   private baseApi = "https://api.themoviedb.org/3/tv/"
-  private chaveApi = ""
+  private chaveApi = "f814673a004bcd3dfd0e837cf1a0b020"
   private idioma = "&language=pt-BR"
 
   constructor(public http: Http) {

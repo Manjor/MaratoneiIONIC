@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import {Geolocation} from '@ionic-native/geolocation';
 import { DomSanitizer } from '@angular/platform-browser';
-import { GoogleMap, GoogleMapOptions, GoogleMaps, Marker, GoogleMapsEvent } from '@ionic-native/google-maps';
+import {GoogleMaps, GoogleMap, GoogleMapOptions, Marker, GoogleMapsEvent} from '@ionic-native/google-maps'
 import { animation } from '@angular/core/src/animation/dsl';
 
 
@@ -33,33 +33,37 @@ export class MapaCinemasPage {
     private sanitizer: DomSanitizer,
     private platform: Platform
   ) {
-    platform.ready();
+    this.platform.ready().then(()=>{
+      this.minhaLocalizacao();
+      this.loadMap();
+    })
   }
+  
   
 
   ionViewDidLoad() {
-
+      this.minhaLocalizacao();
       this.loadMap();
-
   }
 
   loadMap()
   {
-    let mapOptions: GoogleMapOptions = {
+
+    let opcoes : GoogleMapOptions = {
+
       camera: {
         target: {
           lat: this.latitude,
-          lng: this.longitude
+          lng:this.longitude
         },
         zoom: 18,
         tilt: 30
       }
     };
 
+    this.map = GoogleMaps.create('map_canvas',opcoes);
 
-    this.map = GoogleMaps.create('map_canvas', mapOptions);
-
-    let marker: Marker = this.map.addMarkerSync({
+    let desenho: Marker = this.map.addMarkerSync({
       title: 'Ionic',
       icon: 'blue',
       animation: 'DROP',
@@ -69,6 +73,11 @@ export class MapaCinemasPage {
       }
     });
     
+
+    this.map.one(GoogleMapsEvent.MAP_READY).then(() => {
+      console.log('Mapa Pronto');
+    })
+    console.log('Entrei no Mapa');
   }
 
   minhaLocalizacao()

@@ -13,11 +13,12 @@ import { MapaCinemasPage } from '../pages/mapa-cinemas/mapa-cinemas';
 })
 export class MyApp {
   //Define a pagina que será iniciado com o Sistema
-  rootPage:any = MapaCinemasPage;
+  rootPage:any ;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
+      this.rootPage = MapaCinemasPage;
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();

@@ -17,7 +17,7 @@ export class MovieProvider {
   private baseApi = "https://api.themoviedb.org/3/movie/"
   private baseApiGenero = "https://api.themoviedb.org/3/genre/"
   private baseBusca = "https://api.themoviedb.org/3/"
-  private chaveApi = ""
+  private chaveApi = "f814673a004bcd3dfd0e837cf1a0b020"
   private idioma = "&language=pt-BR"
   private busca = "&query=";
 

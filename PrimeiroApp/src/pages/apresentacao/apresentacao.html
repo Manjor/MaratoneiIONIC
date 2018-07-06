@@ -66,14 +66,11 @@
           </ion-toolbar>
    
       <p text-center>
-        <a ion-button small no-margin outline color="primary" >Buscar Cinemas</a>
+        <a ion-button small no-margin (click)="irMapa()" outline color="primary" >Buscar Cinemas</a>
       </p>
       <ion-card *ngFor="let filme of lista_filmes">
         <a (click)="irDetalhes(filme)" >
         <img [src]="'https://image.tmdb.org/t/p/w500/' + filme.backdrop_path" alt="{{filme.title}}">
-        <button ion-fab mini >
-          <ion-icon name="heart"></ion-icon>
-        </button>
         </a>
         <ion-card-content no-padding>
           <ion-grid>
@@ -118,7 +115,9 @@
   </div>
   <ion-fab right bottom>
     <button ion-fab small color="vermelho2" mini  id="botaoTop">+</button>
+
     <ion-fab-list side="left">
+      <button ion-button small color="vermelho">Topo</button>
       <button ion-button small color="vermelho">Cinemas Proximos</button>
     </ion-fab-list>
   </ion-fab>

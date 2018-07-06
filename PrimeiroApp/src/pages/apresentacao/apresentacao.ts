@@ -10,6 +10,7 @@ import { removeArrayItem } from 'ionic-angular/umd/util/util';
 import { DetalhesSeriePage } from '../detalhes-serie/detalhes-serie';
 import { LoginPage } from '../login/login';
 import { ModalBuscaPage } from '../modal-busca/modal-busca';
+import { MapaCinemasPage } from '../mapa-cinemas/mapa-cinemas';
 
 /**
  * Generated class for the ApresentacaoPage page.
@@ -183,5 +184,9 @@ export class ApresentacaoPage {
     });
     console.log(filme.id);
     
+  }
+  irMapa()
+  {
+    this.navCtrl.push(MapaCinemasPage);
   }
 }
