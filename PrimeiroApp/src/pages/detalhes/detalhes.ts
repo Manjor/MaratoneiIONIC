@@ -61,7 +61,16 @@ export class DetalhesPage {
     this.movieProvider.pegaDetalhes(this.idFilme).subscribe(
       data=>{
         let resultado = (data as any)._body;
-        this.filme = JSON.parse(resultado);
+        let filmeTemp = JSON.parse(resultado);
+        if(resultado.poster_path == null)
+        {
+          resultado.poster_path == 'Imagem Indisponível.'
+          this.filme = filmeTemp;
+        }
+        else
+        {
+          this.filme = filmeTemp;
+        }
       },
       error=>{
         console.log(error);

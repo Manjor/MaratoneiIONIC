@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { MovieProvider } from '../../providers/movie/movie';
 import { DetalhesPage } from '../detalhes/detalhes';
+import { ApresentacaoPage } from '../apresentacao/apresentacao';
 
 /**
  * Generated class for the ModalBuscaPage page.
@@ -21,13 +22,15 @@ export class ModalBuscaPage {
   public lista_busca = new Array<any>();
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
-     private movieProvider: MovieProvider
+     private movieProvider: MovieProvider,
+     public viewCtrl: ViewController
     ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ModalBuscaPage');
   }
+
 
 
   buscaFilme(texto : string)
@@ -64,6 +67,10 @@ export class ModalBuscaPage {
     });
     console.log(filme.id);
     
+  }
+  voltar()
+  {
+    this.viewCtrl.dismiss();
   }
 
 

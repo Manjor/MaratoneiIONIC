@@ -8,6 +8,7 @@ import {
   Marker,
   LatLng
 } from '@ionic-native/google-maps'; 
+import { Geolocation} from '@ionic-native/geolocation'
 
 
 @Component({
@@ -16,9 +17,13 @@ import {
 })
 export class MapaCinemasPage {
   map: GoogleMap;
+  public latitude: number;
+  public longitude: number;
 
-
-  constructor( public navCtrl: NavController, private platform: Platform)
+  constructor( public navCtrl: NavController,
+     private platform: Platform,
+      public localizacao: Geolocation
+    )
   {
 
   }
@@ -31,12 +36,23 @@ export class MapaCinemasPage {
 
   loadMap(){
 
+    this.localizacao.getCurrentPosition().then((resp) => {
+
+      this.latitude = resp.coords.latitude
+      this.longitude = resp.coords.longitude;
+    }).catch((error) => {
+      console.log(error , "Erro localização")
+    });
+
+    
+
+
     let mapElement = document.getElementById('map');
     let mapOptions: GoogleMapOptions = {
       'camera': {
         'target': {
-          "lat": 21.382314,
-          "lng": -157.933097
+          "lat": this.latitude,
+          "lng": this.longitude
         },
         'zoom': 10
       }
@@ -58,10 +74,10 @@ export class MapaCinemasPage {
       });
 
       return this.map.addMarker({
-        title: 'Locations S',
+        title: 'Minha Localização',
         icon: 'blue',
         animation: 'DROP',
-        position: new LatLng(21.382314, -157.933097)
+        position: new LatLng(this.latitude,this.longitude)
       })
     }).then((marker:Marker) => {
       console.log('marker added');

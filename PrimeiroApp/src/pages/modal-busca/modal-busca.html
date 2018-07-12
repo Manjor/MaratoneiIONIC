@@ -7,21 +7,32 @@
 <ion-header>
 
   <ion-navbar>
-    
     <ion-toolbar>
-      <ion-searchbar [(ngModel)]="meuTexto">
-      </ion-searchbar>
-      <ion-buttons end>
-          <button (click)="recebeDado(meuTexto)"ion-button>
-            <ion-icon name="search" ></ion-icon>
+      <ion-title>
+        Buscar Filmes e Series
+      </ion-title>
+      <ion-buttons start>
+          <button (click)="voltar()"ion-button>
+            <ion-icon name="close" ></ion-icon>
           </button>
-        </ion-buttons>
-      
+      </ion-buttons>      
     </ion-toolbar>
   </ion-navbar>
 
 </ion-header>
 <ion-content>
+
+  <div text-center>
+    <ion-searchbar [(ngModel)]="meuTexto">
+    </ion-searchbar>
+    <ion-buttons>
+        <button ion-button (click)="recebeDado(meuTexto)" color="vermelho2" icon-start>
+          <ion-icon name='search'></ion-icon>Pesquisar
+        </button>
+    </ion-buttons>
+    
+  </div>
+
   <ion-card *ngFor="let resultado of lista_busca">
     <ion-card-content>
       <ion-grid no-padding>

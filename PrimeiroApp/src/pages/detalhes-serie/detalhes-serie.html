@@ -15,7 +15,7 @@
 <ion-content>
   <div *ngIf="serie">
     <img width="100%"[src]="'https://image.tmdb.org/t/p/w500/' + serie.poster_path"/>
-  
+    
   <ion-toolbar color="preto" no-border-top>
       <ion-segment [(ngModel)]="segmento">
         <ion-segment-button value="Sobre">
@@ -61,14 +61,14 @@
             <ion-card *ngFor="let ep of temporada.episodes">
               <ion-card-content>
                 <ion-card-title>
-                  <h3>{{ep.episode_number}} - {{ep.name}}</h3>
+                  <h3 >{{ep.episode_number}} - {{ep.name}}</h3>
                 </ion-card-title>
                   <p>{{ep.overview}}</p>
                   <ion-buttons end>
                       <button ion-button clear icon-only>
-                          <ion-icon name="md-heart" color="vermelho"></ion-icon>
+                          <ion-icon name="md-heart"></ion-icon>
                       </button>
-                      <button ion-button clear small icon-only>
+                      <button ion-button clear small color="vermelho2" icon-only>
                         Ver mais
                       </button>
                     </ion-buttons>

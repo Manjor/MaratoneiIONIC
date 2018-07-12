@@ -1,17 +1,29 @@
 <ion-menu [content]="conteudoMenu">
     <ion-header>
-        <ion-toolbar color="azul">
+        <ion-toolbar color="vermelho2">
             <ion-title>Menu</ion-title>
         </ion-toolbar>
     </ion-header>
     <ion-content>
-        <ion-list margin-right>
-           <button menuClose ion-item (click)="irIncio()">Inicio</button>
-           <button menuClose ion-item (click)="irFilmes()">Filmes</button>
-           <button menuClose ion-item (click)="irSeries">Series</button>
-           <button menuClose ion-item (click)="irSobre">Sobre</button>
-           <button menuClose ion-item (click)="irAjuda" >Ajude-nos</button>
-        </ion-list>
+        <ion-card>
+            <button menuClose ion-item (click)="irIncio()">
+                <ion-icon name='home'></ion-icon>
+                Inicio
+            </button>
+        </ion-card>
+        <ion-card>
+            <button menuClose ion-item block (click)="irSobre">
+                <ion-icon name='information-circle'></ion-icon>
+                Sobre
+            </button>
+        </ion-card>           
+        <ion-card>
+            <button menuClose ion-item (click)="irAjuda">
+               <ion-icon name='help-circle'></ion-icon>
+                Ajude-nos
+            </button>
+        </ion-card>
+
     </ion-content>
 
 </ion-menu>
