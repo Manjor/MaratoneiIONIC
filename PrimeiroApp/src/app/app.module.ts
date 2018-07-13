@@ -24,7 +24,7 @@ import { LoginPageModule } from '../pages/login/login.module';
 import { ModalBuscaPageModule } from '../pages/modal-busca/modal-busca.module';
 import { CadastroUsuarioPage } from '../pages/cadastro-usuario/cadastro-usuario';
 import { CadastroUsuarioPageModule } from '../pages/cadastro-usuario/cadastro-usuario.module';
-import { GoogleMaps } from "@ionic-native/google-maps";
+import { GoogleMaps, LocationService } from "@ionic-native/google-maps";
 import { MapaCinemasPageModule } from '../pages/mapa-cinemas/mapa-cinemas.module';
 import {Geolocation} from '@ionic-native/geolocation'
 @NgModule({
