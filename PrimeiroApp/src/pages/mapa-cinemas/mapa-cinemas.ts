@@ -6,7 +6,8 @@ import {
   GoogleMapsEvent,
   GoogleMapOptions,
   Marker,
-  LatLng
+  LatLng,
+  LocationService
 } from '@ionic-native/google-maps'; 
 import { Geolocation} from '@ionic-native/geolocation'
 
@@ -25,34 +26,35 @@ export class MapaCinemasPage {
       public localizacao: Geolocation
     )
   {
-
+    this.platform.ready().then( () => {
+      this.loadMap();
+    });
   }
 
   ionViewDidLoad(){
-   this.platform.ready().then( () => {
      this.loadMap();
-   });
   }
 
   loadMap(){
 
-    this.localizacao.getCurrentPosition().then((resp) => {
+    /**this.localizacao.getCurrentPosition().then((resp) => {
 
-      this.latitude = resp.coords.latitude
+      this.latitude = resp.coords.latitude;
       this.longitude = resp.coords.longitude;
     }).catch((error) => {
-      console.log(error , "Erro localização")
-    });
-
-    
-
+      console.log(error , "Erro localização");
+    });*/
 
     let mapElement = document.getElementById('map');
+
+    let localizacao = LocationService.getMyLocation();
+
+
     let mapOptions: GoogleMapOptions = {
       'camera': {
         'target': {
-          "lat": this.latitude,
-          "lng": this.longitude
+          "lat": 84.225334,
+          "lng": -36.445611
         },
         'zoom': 10
       }
@@ -77,7 +79,7 @@ export class MapaCinemasPage {
         title: 'Minha Localização',
         icon: 'blue',
         animation: 'DROP',
-        position: new LatLng(this.latitude,this.longitude)
+        position: new LatLng(84.225334,-36.445611)
       })
     }).then((marker:Marker) => {
       console.log('marker added');
