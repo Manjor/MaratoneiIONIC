@@ -1,11 +1,11 @@
 <!-- Cabeçalho -->
 <ion-header>
-  <ion-navbar color="vermelho2">
+  <ion-navbar color="preto">
     <button ion-button icon-only menuToggle>
       <ion-icon name='menu'></ion-icon>
     </button>
     <ion-title>
-      Cine Home
+      Cine Mania
     </ion-title>
     <ion-buttons end>
       <button (click)="abriBusca()" ion-button icon-only>
@@ -34,7 +34,7 @@
 <ion-content class="card-background-page">
   <div [ngSwitch]="filmes">
     <ion-list *ngSwitchCase="'Filmes'">
-      <ion-toolbar color="dark">
+      <ion-toolbar>
             <ion-slides>
               <ion-slide>
                 <p class="slide1" no-padding no-margin>
@@ -64,11 +64,7 @@
               </ion-slide>
             </ion-slides>
           </ion-toolbar>
-   
-      <p text-center>
-        <a ion-button small no-margin (click)="irMapa()" outline color="primary" >Buscar Cinemas</a>
-      </p>
-      <ion-card *ngFor="let filme of lista_filmes">
+      <ion-card *ngFor="let filme of lista_filmes" no-margin margin-bottom style="width: 100%">
         <a (click)="irDetalhes(filme)" >
         <img [src]="'https://image.tmdb.org/t/p/w500/' + filme.backdrop_path" alt="{{filme.title}}">
         </a>
@@ -89,7 +85,7 @@
     </ion-list>
     
     <ion-list *ngSwitchCase="'Series'">
-      <ion-card *ngFor="let serie of lista_series">
+      <ion-card *ngFor="let serie of lista_series" no-margin margin-bottom style="width: 100%">
         <img width="100%"  [src]="'https://image.tmdb.org/t/p/w500/' + serie.backdrop_path" alt="{{serie.name}}">
         <ion-card-content no-padding>
             <ion-grid>
