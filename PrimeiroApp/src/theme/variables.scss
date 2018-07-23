@@ -54,14 +54,15 @@ $text-color: white;
 $font-family-md-base: Roboto;
 $card-md-text-color: white;
 $card-md-title-text-color: white;
-$segment-button-md-border-color-activated: #503584;
-$segment-button-md-text-color-activated: #503584;
+$card-md-background-color: transparent;
+$segment-button-md-border-color-activated: #A62247;
+$segment-button-md-text-color-activated: #A62247;
 $segment-button-md-font-size: 1.3rem;
 $button-md-outline-border-width: 1px 0;
 
-$app-background: linear-gradient(to right, color($colors, roxo) 0%, color($colors, dark) 100%);
+/*$app-background: linear-gradient(to right, color($colors, roxo) 0%, color($colors, dark) 100%);
 $background-color: transparent;
-$toolbar-background: transparent;
+$toolbar-background: transparent;*/
 
 // App iOS Variables
 // --------------------------------------------------

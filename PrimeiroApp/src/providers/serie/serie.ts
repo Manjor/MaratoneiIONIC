@@ -14,7 +14,7 @@ export class SerieProvider {
   private baseApi = "https://api.themoviedb.org/3/tv/"
   private chaveApi = ""
   private idioma = "&language=pt-BR"
-
+  
   constructor(public http: Http) {
   }
   pegaSeriesPopulares(){

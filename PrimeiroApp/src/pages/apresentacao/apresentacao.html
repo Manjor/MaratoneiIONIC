@@ -5,7 +5,7 @@
       <ion-icon name='menu'></ion-icon>
     </button>
     <ion-title>
-      Cine Mania
+      Maratonei
     </ion-title>
     <ion-buttons end>
       <button (click)="abriBusca()" ion-button icon-only>
@@ -65,13 +65,15 @@
             </ion-slides>
           </ion-toolbar>
       <ion-card *ngFor="let filme of lista_filmes" no-margin margin-bottom style="width: 100%">
-        <a (click)="irDetalhes(filme)" >
+        <a (click)="abrirResumo(filme.title, filme.overview,filme)" >
         <img [src]="'https://image.tmdb.org/t/p/w500/' + filme.backdrop_path" alt="{{filme.title}}">
         </a>
         <ion-card-content no-padding>
           <ion-grid>
             <ion-row>
-              <ion-col col-9><p>{{filme.title}}</p></ion-col>
+              <ion-col col-9>
+                <p>{{filme.title}}</p>
+              </ion-col>
               <ion-col col-3>
                 <ion-buttons end>
                   <a ion-link end class="linkDetalhes" (click)="irDetalhes(filme)">Detalhes</a>

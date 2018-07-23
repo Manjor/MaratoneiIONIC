@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController, LoadingController, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, LoadingController, ModalController, ActionSheetController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { FilmesPage } from '../filmes/filmes';
 import { MovieProvider } from '../../providers/movie/movie';
@@ -41,7 +41,8 @@ export class ApresentacaoPage {
      private movieProvider: MovieProvider,
      private serieProvider: SerieProvider,
      public loadingCtrl: LoadingController,
-     public modalCtrl: ModalController
+     public modalCtrl: ModalController,
+     public actionSheetCtrl: ActionSheetController
     )
       {
         menu.enable(true);
@@ -138,10 +139,25 @@ export class ApresentacaoPage {
     )
   }
 
-
-  abriBusca(){
-    const modal = this.modalCtrl.create(ModalBuscaPage);
-    modal.present();
+  abrirResumo(titulo:string,resumo: string,filme)
+  {
+    const actionSheet = this.actionSheetCtrl.create({
+      title: titulo,
+      cssClass: 'actionSheetFilmes',
+      buttons: [
+        {
+          text: resumo,
+        },{
+          text: 'Fechar',
+          icon: 'close',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancelar Clicado');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
   }
 
 
@@ -149,13 +165,10 @@ export class ApresentacaoPage {
 
 
 
-
-
-
-
-
-
-
+  abriBusca(){
+    const modal = this.modalCtrl.create(ModalBuscaPage);
+    modal.present();
+  }
 
   //Metodo que redireciona para a pagina com Abas
   irTabsPage()
