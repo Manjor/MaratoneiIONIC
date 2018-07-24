@@ -36,6 +36,11 @@ export class ApresentacaoPage {
   filmes: string = "Filmes";
   categoria: string = "Categorias";
 
+  lista_filmes_favoritos = new Array<any>();
+
+  public lista: string = " + Minha Lista"
+
+
   constructor(public navCtrl: NavController,
      public navParams: NavParams, menu : MenuController,
      private movieProvider: MovieProvider,
@@ -193,7 +198,16 @@ export class ApresentacaoPage {
   }
 
 
+  favoritar(filme)
+  {
+    this.lista_filmes_favoritos.push(filme);
+    this.lista = "Salvo";
+  }
 
+  taSalvo()
+  {
+    
+  }
 
 
   abriBusca(){

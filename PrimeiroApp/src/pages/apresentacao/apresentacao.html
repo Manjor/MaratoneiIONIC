@@ -72,11 +72,15 @@
           <ion-grid>
             <ion-row>
               <ion-col col-8>
-                <p>{{filme.title}}</p>
+                <a (click)="irDetalhes(filme)" >
+                  <p>{{filme.title}}</p>
+                </a>
               </ion-col>
               <ion-col col-4>
                 <ion-buttons end>
-                  <a ion-link end small no-margin class="linkDetalhes" (click)="irDetalhes(filme)">Mais</a>
+                  <ion-badge color="dark">
+                    <a class="linkDetalhes" (click)="favoritar(filme)">{{lista}}</a>
+                  </ion-badge>
                 </ion-buttons>
               </ion-col>
             </ion-row>
@@ -108,9 +112,37 @@
       </ion-card>
     </ion-list>
     <ion-list *ngSwitchCase="'Lista'">
-      <ion-item>
-              
-      </ion-item>
+      <div *ngFor="let filmesalvo of lista_filmes_favoritos">
+        <ion-card>
+          <img [src]="'https://image.tmdb.org/t/p/w500/' + filmesalvo.backdrop_path" alt="{{filmesalvo.title}}">
+          <ion-card-content>
+            <ion-card-title>
+              <h2>{{filmesalvo.title}}</h2>
+            </ion-card-title>
+            <p>
+              {{filmesalvo.overview}}
+            </p>
+            <div>
+              <ion-buttons end>
+                
+                <button ion-button clear small color="secondary">
+                  <ion-icon name='share'></ion-icon>
+                </button> 
+                <button ion-button clear small color="danger">
+                  <ion-icon name='logo-youtube'></ion-icon>
+                </button>
+                <button ion-button clear small>
+                  Detalhes
+                </button>
+                <button ion-button clear small color="danger">
+                  <ion-badge color="danger">Remover</ion-badge>
+                </button>
+               
+              </ion-buttons>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </div>
     </ion-list>
   </div>
   <ion-fab right bottom>

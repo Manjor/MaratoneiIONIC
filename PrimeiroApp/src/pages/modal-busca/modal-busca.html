@@ -21,37 +21,17 @@
 
 </ion-header>
 <ion-content>
-
   <div text-center>
-    <ion-searchbar [(ngModel)]="meuTexto">
-    </ion-searchbar>
-    <ion-buttons>
-        <button ion-button (click)="recebeDado(meuTexto)" color="vermelho2" icon-start>
-          <ion-icon name='search'></ion-icon>Pesquisar
-        </button>
-    </ion-buttons>
-    
+    <ion-searchbar [(ngModel)]="meuTexto" (ionInput)="recebeDado(meuTexto)">
+    </ion-searchbar> 
   </div>
-
-  <ion-card *ngFor="let resultado of lista_busca">
+  <ion-card>
+    
     <ion-card-content>
       <ion-grid no-padding>
         <ion-row>
-          <ion-col col-3 no-padding>
+          <ion-col *ngFor="let resultado of lista_busca" col-4 padding> 
             <img [src]="'https://image.tmdb.org/t/p/w300/' + resultado.poster_path" alt="{{resultado.title}}">
-          </ion-col>
-          <ion-col text-center col-9>
-              {{resultado.title}}
-              <ion-list>
-                <ion-item>
-                  <p>{{resultado.overview}}</p>
-                  <ion-buttons end>
-                      <button (click)="irDetalhes(resultado)" color="vermelho2" ion-button clear small icon-only>
-                        Ver mais
-                      </button>
-                    </ion-buttons>
-                </ion-item>
-              </ion-list>
           </ion-col>
         </ion-row>
       </ion-grid>

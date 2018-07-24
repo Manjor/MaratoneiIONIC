@@ -50,6 +50,7 @@ export class ModalBuscaPage {
   
   recebeDado(texto: string)
   {
+    this.texto = "";
     this.texto = texto;
     this.buscaFilme(this.texto);
     console.log(this.texto);
