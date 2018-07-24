@@ -139,7 +139,7 @@ export class ApresentacaoPage {
     )
   }
 
-  abrirResumo(titulo:string,resumo: string,filme)
+  abrirResumo(titulo:string,estreia:string,resumo: string,filme)
   {
     const actionSheet = this.actionSheetCtrl.create({
       title: titulo,
@@ -147,6 +147,12 @@ export class ApresentacaoPage {
       buttons: [
         {
           text: resumo,
+        },{
+          text: 'Ver Mais',
+          icon: 'information-circle',
+          handler: () => {
+            this.irDetalhes(filme);
+          }
         },{
           text: 'Fechar',
           icon: 'close',
@@ -159,7 +165,32 @@ export class ApresentacaoPage {
     });
     actionSheet.present();
   }
-
+  abrirResumoSerie(titulo:string, resumo:string, sessoes:string,serie)
+  {
+    const actionSheet = this.actionSheetCtrl.create({
+      title: titulo,
+      cssClass: 'actionSheetFilmes',
+      buttons: [
+        {
+          text: resumo,
+        },{
+          text: 'Ver Mais',
+          icon: 'information-circle',
+          handler: () => {
+            this.irDetalhesSeries(serie);
+          }
+        },{
+          text: 'Fechar',
+          icon: 'close',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancelar Clicado');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
+  }
 
 
 
