@@ -88,8 +88,11 @@ export class ApresentacaoPage {
       data=> {
         const response = (data as any);
         const resultado = JSON.parse(response._body);
-        var i;
-        this.lista_series = resultado.results
+    
+        for( let i = 0; i < 6; i++)
+        {
+          this.lista_series.push(resultado.results[i]);
+        }
         console.log(resultado);
       },
       error =>{

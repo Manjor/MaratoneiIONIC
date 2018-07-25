@@ -17,7 +17,7 @@
 <div *ngIf="filme">
   <img width="100%"[src]="'https://image.tmdb.org/t/p/w500/' + filme.poster_path"/>
   
-  <ion-toolbar  no-border-top>
+  <ion-toolbar class="toolbarDetalhes" no-border-top>
       <ion-segment [(ngModel)]="segmento">
         <ion-segment-button value="Sobre">
           Sobre
@@ -44,8 +44,18 @@
           Estreia: {{filme.release_date}}<br>  
           {{filme.overview}}
         </p>
+        
         <p class="texto-branco" text-justify>
-          Genero(s): {{filme.genres[0].name}}, {{filme.genres[1].name}}, {{filme.genres[2].name}}<br>
+          Genero(s): 
+          <ion-badge color="dark">
+            {{filme.genres[0].name}}
+          </ion-badge>
+          <ion-badge color="dark">
+            {{filme.genres[1].name}}
+          </ion-badge>
+          <ion-badge color="dark">
+            {{filme.genres[2].name}}
+          </ion-badge>
         </p>
       </ion-card-content>
     </ion-card>

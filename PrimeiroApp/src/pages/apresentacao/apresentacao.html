@@ -91,7 +91,24 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'Series'">
-      <ion-card *ngFor="let serie of lista_series" no-margin margin-bottom style="width: 100%">
+      
+      <ion-grid>
+        <ion-row>
+          <ion-col col-12>
+            Populares
+          </ion-col>
+          <ion-col col-4 *ngFor='let serie of lista_series'>
+              <img width="100%" height="100%"  [src]="'https://image.tmdb.org/t/p/w500/' + serie.poster_path" alt="{{serie.name}}">       
+          </ion-col>
+          <ion-col col-12 text-right>
+            <button ion-button small clear>Ver mais</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+
+      <!--<ion-card *ngFor="let serie of lista_series" no-margin margin-bottom style="width: 100%">
           <a (click)="abrirResumoSerie(serie.name, serie.overview, serie)" >  
           <img width="100%"  [src]="'https://image.tmdb.org/t/p/w500/' + serie.backdrop_path" alt="{{serie.name}}">
           </a>
@@ -109,7 +126,7 @@
              </ion-row>
            </ion-grid>
            </ion-card-content>
-      </ion-card>
+      </ion-card>-->
     </ion-list>
     <ion-list *ngSwitchCase="'Lista'">
       <div *ngFor="let filmesalvo of lista_filmes_favoritos">
