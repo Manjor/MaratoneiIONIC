@@ -1,0 +1,10 @@
+Projeto Desenvolvido em IONIC 3.
+Proposta: Aplicativo de Sinópses e Trailers de Filmes e Séries.
+Técnologias: IONIC Framework 3
+            - AngularJS - TypeScript - HTML - CSS
+API(s) Utilizada(s): TheMovieDB
+
+Descrição: O projeto foi elaborado por uma iniciativa de buscar conhecimento em outras técnologias,estas que não são ministradas em sala de
+aula no meu atual curso de graduação(Sistemas de Informação). Tendo a ideia central, ser multplataforma, ou seja, a aplicação pode ser
+exportada para Android, IOS e WEB. O aplicativo tras informações sobre filmes e séries,como: filmes e séries populares
+filmes em cartaz, séries em alta TV, trailers e imagens. 
